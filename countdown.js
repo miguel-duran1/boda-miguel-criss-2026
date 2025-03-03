@@ -24,3 +24,15 @@ const countdownFunction = setInterval(() => {
         document.getElementById('countdown-timer').innerHTML = "¡Hoy es el gran día!";
     }
 }, 1000);
+
+
+
+// ponemos que el header cambie de color cuando hacemos escroll hacia abajo 
+window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});

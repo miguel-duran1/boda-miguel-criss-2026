@@ -1,37 +1,54 @@
 body {
     font-family: 'Georgia', serif;
-    background-color: #f4f0e6; /* Un beige suave */
-    color: #5a4a42; /* Un marrón oscuro elegante */
+    background-color: #F8EDE3; /* Champán */
+    color: #5A4A42; /* Marrón oscuro elegante */
     text-align: center;
     margin: 0;
     padding: 20px;
 }
 
 header {
-    margin-bottom: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(234, 215, 193, 0.9); /* Rosa empolvado con transparencia */
+    color: #5A4A42; /* Marrón oscuro elegante */
+    padding: 15px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombras sutiles */
+}
+
+header.scrolled {
+    background: #EAD7C1; /* Rosa empolvado más sólido */
 }
 
 h1 {
     font-size: 2.5rem;
-    color: #8b7355; /* Un marrón dorado */
+    color: #A67B5B; /* Marrón cálido */
 }
 
 p {
     font-size: 1.2rem;
+    color: #7D6757; /* Gris marrón */
 }
 
 .countdown {
-    margin: 40px 0;
+    margin: 120px 0 40px; /* Ajustamos el margen para que no quede oculto por el header */
 }
 
 #countdown-timer {
     font-size: 2rem;
     font-weight: bold;
-    color: #6b5b4f; /* Un marrón más oscuro */
+    color: #6B5B4F; /* Un marrón más oscuro */
 }
 
 footer {
     margin-top: 60px;
     font-size: 1rem;
-    color: #8b7355; /* Marrón dorado */
+    color: #A67B5B; /* Marrón cálido */
 }
