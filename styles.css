@@ -1,0 +1,37 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f0e6; /* Un beige suave */
+    color: #5a4a42; /* Un marrón oscuro elegante */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #8b7355; /* Un marrón dorado */
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.countdown {
+    margin: 40px 0;
+}
+
+#countdown-timer {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6b5b4f; /* Un marrón más oscuro */
+}
+
+footer {
+    margin-top: 60px;
+    font-size: 1rem;
+    color: #8b7355; /* Marrón dorado */
+}
