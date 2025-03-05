@@ -25,9 +25,7 @@ const countdownFunction = setInterval(() => {
     }
 }, 1000);
 
-
-
-// ponemos que el header cambie de color cuando hacemos escroll hacia abajo 
+// Cambia el color del header cuando se hace scroll
 window.addEventListener("scroll", function () {
     var header = document.querySelector("header");
     if (window.scrollY > 50) {

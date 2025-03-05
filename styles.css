@@ -4,30 +4,75 @@ body {
     color: #5A4A42; /* Marrón oscuro elegante */
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 header {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    background: rgba(234, 215, 193, 0.9); /* Rosa empolvado con transparencia */
-    color: #5A4A42; /* Marrón oscuro elegante */
-    padding: 15px 0;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
+    top: 0;
+    background: rgba(234, 215, 193, 0.9); /* Rosa empolvado más sólido */
     z-index: 1000;
-    transition: background 0.3s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombras sutiles */
+    transition: background 0.3s ease;
 }
 
 header.scrolled {
     background: #EAD7C1; /* Rosa empolvado más sólido */
 }
 
-h1 {
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #5A4A42;
+    font-weight: bold;
+}
+
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro para mejorar la legibilidad del texto */
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+}
+
+.hero-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+h2 {
     font-size: 2.5rem;
     color: #A67B5B; /* Marrón cálido */
 }
@@ -37,18 +82,68 @@ p {
     color: #7D6757; /* Gris marrón */
 }
 
-.countdown {
-    margin: 120px 0 40px; /* Ajustamos el margen para que no quede oculto por el header */
-}
-
 #countdown-timer {
     font-size: 2rem;
     font-weight: bold;
     color: #6B5B4F; /* Un marrón más oscuro */
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #A67B5B;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #A67B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 footer {
     margin-top: 60px;
     font-size: 1rem;
     color: #A67B5B; /* Marrón cálido */
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    #countdown-timer {
+        font-size: 1.5rem;
+    }
+
+    .info, .rsvp, .gifts, .gallery, .contact {
+        margin: 40px 0;
+    }
+
+    .location iframe {
+        height: 300px;
+    }
 }

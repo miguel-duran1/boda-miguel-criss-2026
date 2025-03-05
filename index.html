@@ -3,30 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda de [Nombre de la Pareja]</title>
+    <title>Boda de Miguel y Cristina</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="countdown.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Bienvenidos a nuestra boda</h1>
-        <p>Nos casamos el 2 de mayo de 2026 en La Tartana, Matadepera, Barcelona.</p>
+        <nav>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#info">Información</a></li>
+                <li><a href="#countdown">Cuenta Atrás</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#gifts">Lista de Regalos</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#location">Ubicación</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <section class="countdown">
-        <h2>Cuenta atrás para el gran día</h2>
+    
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Miguel & Cristina</h1>
+            <p>¡Nos casamos! Acompáñanos en este día tan especial.</p>
+            <img src="cristina_yo.jpg" alt="Foto de la pareja">
+        </div>
+    </section>
+    
+    <section id="info">
+        <h2>Información de la Boda</h2>
+        <p>Fecha: 2 de mayo de 2026</p>
+        <p>Ubicación: La Tartana, Matadepera, Barcelona</p>
+    </section>
+    
+    <section id="countdown">
+        <h2>Cuenta Atrás</h2>
         <div id="countdown-timer">
-            <span id="days"></span> días
-            <span id="hours"></span> horas
-            <span id="minutes"></span> minutos
+            <span id="days"></span> días 
+            <span id="hours"></span> horas 
+            <span id="minutes"></span> minutos 
             <span id="seconds"></span> segundos
         </div>
     </section>
-
+    
+    <section id="rsvp">
+        <h2>Confirma tu Asistencia</h2>
+        <form>
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu correo" required>
+            <button type="submit">Confirmar</button>
+        </form>
+    </section>
+    
+    <section id="gifts">
+        <h2>Lista de Regalos</h2>
+        <p>Próximamente...</p>
+    </section>
+    
+    <section id="gallery">
+        <h2>Galería de Fotos</h2>
+        <p>Próximamente...</p>
+    </section>
+    
+    <section id="location">
+        <h2>Ubicación</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.535!2d2.0414!3d41.6045" width="600" height="450" style="border:0;" allowfullscreen></iframe>
+    </section>
+    
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Si tienes preguntas, contáctanos en: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></p>
+    </section>
+    
     <footer>
-        <p>¡Esperamos compartir este día tan especial con todos ustedes!</p>
+        <p>Síguenos en redes sociales</p>
     </footer>
-
-    <script src="countdown.js"></script>
-    <script src="scroll.js"></script> <!-- Nuevo script -->
 </body>
 </html>
