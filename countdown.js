@@ -37,13 +37,12 @@ window.addEventListener("scroll", function () {
 
 
 
+// Manejo del menú hamburguesa
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
 
     menuToggle.addEventListener("click", function () {
-        menu.classList.toggle("hidden");
-        console.log('Menú toggled'); // Verifica si el evento se está disparando
+        menu.classList.toggle("active"); // Alternar la clase "active"
     });
 });
-

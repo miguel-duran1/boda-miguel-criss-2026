@@ -21,6 +21,9 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* styles.css */
+
+/* Estilos para el menú hamburguesa */
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
