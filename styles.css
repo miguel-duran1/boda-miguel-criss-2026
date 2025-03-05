@@ -158,3 +158,35 @@ footer {
     }
 
 }
+
+#location {
+    padding: 60px 20px;
+    background-color: #F8EDE3; /* Fondo acorde al tema */
+}
+
+#location h2 {
+    font-size: 2.5rem;
+    color: #A67B5B; /* Marrón cálido */
+    margin-bottom: 20px;
+}
+
+#location p {
+    font-size: 1.2rem;
+    color: #7D6757; /* Gris marrón */
+    margin-bottom: 10px;
+}
+
+#location a {
+    color: #A67B5B; /* Marrón cálido */
+    text-decoration: none;
+}
+
+#location a:hover {
+    text-decoration: underline;
+}
+
+#location iframe {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    margin-top: 20px;
+}
