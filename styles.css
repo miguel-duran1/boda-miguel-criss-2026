@@ -11,17 +11,13 @@ header {
     background: rgba(234, 215, 193, 0.9);
     padding: 10px;
     text-align: center;
-    position: absolute; /* Asegura que el header esté posicionado correctamente */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10; /* Coloca el header encima del #hero */
+    position: relative;
 }
-
 
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
+    display: block; /* Asegúrate de que el ícono del menú sea visible */
 }
 
 nav ul {
@@ -29,17 +25,18 @@ nav ul {
     padding: 0;
     margin: 0;
     text-align: center;
-    display: none; /* El menú está oculto por defecto */
+    display: none; /* Ocultar el menú por defecto */
+    position: absolute;
+    top: 60px; /* Ajusta esto según la altura de tu header */
+    left: 0;
+    width: 100%;
+    background: #EAD7C1;
+    z-index: 1000;
 }
 
 nav ul.hidden {
-    display: none; /* Se mantiene oculto cuando tiene la clase 'hidden' */
+    display: none; /* Asegúrate de que el menú esté oculto cuando tenga la clase hidden */
 }
-
-nav ul:not(.hidden) {
-    display: block; /* Cuando se quita la clase 'hidden', se muestra */
-}
-
 
 nav ul li {
     margin: 10px 0;
@@ -50,6 +47,18 @@ nav ul li a {
     color: #5A4A42;
     font-weight: bold;
     display: block;
+    padding: 10px;
+}
+
+/* Estilos para el menú cuando está visible */
+nav ul.active {
+    display: block;
+}
+
+/* Estilos para el header cuando se hace scroll */
+header.scrolled {
+    background: rgba(234, 215, 193, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #hero {
