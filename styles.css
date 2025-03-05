@@ -8,34 +8,37 @@ body {
 }
 
 header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(234, 215, 193, 0.9); /* Rosa empolvado más sólido */
-    z-index: 1000;
-    transition: background 0.3s ease;
+    background: rgba(234, 215, 193, 0.9);
+    padding: 10px;
+    text-align: center;
 }
 
-header.scrolled {
-    background: #EAD7C1; /* Rosa empolvado más sólido */
+.menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    display: none;
+}
+
+nav ul.hidden {
+    display: none;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 10px 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #5A4A42;
     font-weight: bold;
+    display: block;
 }
 
 #hero {
@@ -119,31 +122,17 @@ footer {
 
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        display: block;
+        background: #EAD7C1;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50px;
+        text-align: center;
     }
 
-    nav ul li {
-        margin: 10px 0;
+    nav ul.hidden {
+        display: none;
     }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-
-    #countdown-timer {
-        font-size: 1.5rem;
-    }
-
-    .info, .rsvp, .gifts, .gallery, .contact {
-        margin: 40px 0;
-    }
-
-    .location iframe {
-        height: 300px;
-    }
+}
 }

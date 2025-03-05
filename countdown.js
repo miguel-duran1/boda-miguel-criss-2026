@@ -34,3 +34,14 @@ window.addEventListener("scroll", function () {
         header.classList.remove("scrolled");
     }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+
+    menuToggle.addEventListener("click", function () {
+        menu.classList.toggle("hidden");
+    });
+});
