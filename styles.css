@@ -260,7 +260,7 @@ footer {
 /* Estilos específicos para pantallas más pequeñas */
 @media (max-width: 768px) {
     .countdown-item {
-        width: 80px; /* Reducir el tamaño en pantallas pequeñas */
+        width: 60px; /* Reducir el tamaño en pantallas pequeñas */
         padding: 15px; /* Reducir padding */
     }
 
