@@ -279,7 +279,7 @@ footer {
     }
 
     .countdown-item {
-        width: 70px; /* Asegurar que se ajusten bien en pantallas muy pequeñas */
+        width: 60px; /* Asegurar que se ajusten bien en pantallas muy pequeñas */
         padding: 10px; /* Ajustar padding */
     }
 
