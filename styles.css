@@ -67,7 +67,7 @@ nav ul li a {
     justify-content: center;
     text-align: center;
     color: white;
-    background: linear-gradient(to right, #A67B5B, #EAD7C1);
+    background: linear-gradient(to right, #A67B5B, #D8B48C);
     padding-top: 60px; /* Espacio para el header */
 }
 
@@ -141,6 +141,9 @@ form button {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+}
+form button:hover {
+    background-color: #8B5E3C;
 }
 
 /* Location section */
@@ -224,6 +227,7 @@ footer {
 .countdown-item {
     background-color: #A67B5B;
     padding: 20px;
+    border: 1px solid #8B5E3C;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
