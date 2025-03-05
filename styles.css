@@ -1,41 +1,47 @@
-body {
-    font-family: 'Georgia', serif;
-    background-color: #F8EDE3; /* Champán */
-    color: #5A4A42; /* Marrón oscuro elegante */
-    text-align: center;
+/* styles.css */
+
+/* Reset básico */
+html, body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    font-family: 'Georgia', serif;
+    background-color: #F8EDE3; /* Fondo champán */
+    color: #5A4A42; /* Texto marrón oscuro */
+    text-align: center;
 }
 
+/* Estilos generales */
 header {
     background: rgba(234, 215, 193, 0.9);
     padding: 10px;
-    text-align: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
-    display: block; /* Asegúrate de que el ícono del menú sea visible */
+    display: block; /* Visible en móviles */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center;
-    display: none; /* Ocultar el menú por defecto */
+    display: none; /* Oculto por defecto en móviles */
     position: absolute;
-    top: 60px; /* Ajusta esto según la altura de tu header */
+    top: 50px;
     left: 0;
     width: 100%;
     background: #EAD7C1;
     z-index: 1000;
 }
 
-nav ul.hidden {
-    display: none; /* Asegúrate de que el menú esté oculto cuando tenga la clase hidden */
+nav ul.active {
+    display: block; /* Visible cuando se activa el menú */
 }
 
 nav ul li {
@@ -50,20 +56,9 @@ nav ul li a {
     padding: 10px;
 }
 
-/* Estilos para el menú cuando está visible */
-nav ul.active {
-    display: block;
-}
-
-/* Estilos para el header cuando se hace scroll */
-header.scrolled {
-    background: rgba(234, 215, 193, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
+/* Hero section */
 #hero {
-    position: relative;
-    height: calc(100vh - 60px); /* Ajusta la altura para dejar espacio para el header */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +67,6 @@ header.scrolled {
     background: linear-gradient(to right, #A67B5B, #EAD7C1);
     padding-top: 60px; /* Espacio para el header */
 }
-
 
 .hero-content {
     z-index: 1;
@@ -91,28 +85,36 @@ header.scrolled {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
+/* Secciones comunes */
 section {
     padding: 60px 20px;
+    box-sizing: border-box;
 }
 
 h2 {
     font-size: 2.5rem;
     color: #A67B5B; /* Marrón cálido */
+    margin-bottom: 20px;
 }
 
 p {
     font-size: 1.2rem;
     color: #7D6757; /* Gris marrón */
+    line-height: 1.6;
 }
 
+/* Countdown section */
 #countdown-timer {
     font-size: 2rem;
     font-weight: bold;
-    color: #6B5B4F; /* Un marrón más oscuro */
+    color: #6B5B4F; /* Marrón oscuro */
+    margin: 20px 0;
 }
 
+/* RSVP section */
 form {
     display: flex;
     flex-direction: column;
@@ -122,7 +124,8 @@ form {
 form input {
     margin: 10px 0;
     padding: 10px;
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     border: 1px solid #A67B5B;
     border-radius: 5px;
 }
@@ -134,59 +137,73 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
+/* Location section */
+#location iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Footer */
 footer {
     margin-top: 60px;
+    padding: 20px;
+    background: rgba(234, 215, 193, 0.9);
+    color: #5A4A42;
     font-size: 1rem;
-    color: #A67B5B; /* Marrón cálido */
 }
 
+/* Media queries para móviles */
 @media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    #countdown-timer {
+        font-size: 1.5rem;
+    }
+
     nav ul {
-        display: block;
-        background: #EAD7C1;
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: 50px;
-        text-align: center;
+        top: 60px; /* Ajuste para el menú en móviles */
+    }
+}
+
+/* Estilos adicionales para mejorar la experiencia en móviles */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 
-    nav ul.hidden {
-        display: none;
+    .hero-content p {
+        font-size: 1rem;
     }
 
-}
+    h2 {
+        font-size: 1.8rem;
+    }
 
-#location {
-    padding: 60px 20px;
-    background-color: #F8EDE3; /* Fondo acorde al tema */
-}
+    p {
+        font-size: 0.9rem;
+    }
 
-#location h2 {
-    font-size: 2.5rem;
-    color: #A67B5B; /* Marrón cálido */
-    margin-bottom: 20px;
-}
-
-#location p {
-    font-size: 1.2rem;
-    color: #7D6757; /* Gris marrón */
-    margin-bottom: 10px;
-}
-
-#location a {
-    color: #A67B5B; /* Marrón cálido */
-    text-decoration: none;
-}
-
-#location a:hover {
-    text-decoration: underline;
-}
-
-#location iframe {
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    margin-top: 20px;
+    #countdown-timer {
+        font-size: 1.2rem;
+    }
 }
