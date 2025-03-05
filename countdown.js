@@ -43,5 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuToggle.addEventListener("click", function () {
         menu.classList.toggle("hidden");
+        console.log('Menú toggled'); // Verifica si el evento se está disparando
     });
 });
+
