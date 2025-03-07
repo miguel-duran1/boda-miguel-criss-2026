@@ -46,3 +46,27 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.toggle("active"); // Alternar la clase "active"
     });
 });
+
+
+// reveal.js
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+
+    const observerOptions = {
+        threshold: 0.1 // Ajusta este valor para cambiar cuándo se activa la animación
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // Deja de observar una vez que se ha mostrado
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
