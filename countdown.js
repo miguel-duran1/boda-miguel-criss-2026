@@ -41,12 +41,35 @@ window.addEventListener("scroll", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
+    const body = document.body;
+    const menuLinks = document.querySelectorAll("#menu li a"); 
 
+    // Abrir/cerrar el menú al hacer clic en el ícono de hamburguesa
     menuToggle.addEventListener("click", function () {
-        menu.classList.toggle("active"); // Alternar la clase "active"
+        menu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+    });
+
+    // Cerrar el menú y desplazarse a la sección correspondiente al hacer clic en un enlace
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); 
+
+            // Cierra el menú
+            menu.classList.remove("active");
+            body.classList.remove("menu-open");
+
+            // Obtén el ID de la sección a la que se debe desplazar
+            const targetId = this.getAttribute("href").substring(1); 
+            const targetSection = document.getElementById(targetId);
+
+            // Desplázate suavemente a la sección
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
     });
 });
-
 
 // reveal.js
 
