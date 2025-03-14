@@ -19,6 +19,9 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Usamos flexbox */
+    justify-content: flex-end; /* Alinea el menú a la derecha */
+    align-items: center; /* Alineación vertical */
 }
 
 /* styles.css */
@@ -27,6 +30,7 @@ header {
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 body.menu-open {
