@@ -27,8 +27,12 @@ header {
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
-    display: block; /* Visible en móviles */
-    z-index: 1001; /* Asegura que el ícono esté por encima del menú */
+}
+
+/* Clase para cuando el menú está abierto */
+.menu-toggle.open::before {
+    content: "\2715"; 
+    font-size: 2rem;
 }
 
 nav ul {

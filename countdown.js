@@ -38,6 +38,7 @@ window.addEventListener("scroll", function () {
 
 
 // Manejo del menú hamburguesa
+// Manejo del menú hamburguesa
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
@@ -48,6 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", function () {
         menu.classList.toggle("active");
         body.classList.toggle("menu-open");
+
+        // Cambiar el ícono a "X" cuando el menú está abierto
+        if (menu.classList.contains("active")) {
+            menuToggle.classList.add("close");
+            menuToggle.innerHTML = '✕'; // Cambia el ícono a "X"
+        } else {
+            menuToggle.classList.remove("close");
+            menuToggle.innerHTML = '&#9776;'; // Vuelve al ícono de hamburguesa
+        }
     });
 
     // Cerrar el menú y desplazarse a la sección correspondiente al hacer clic en un enlace
@@ -58,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // Cierra el menú
             menu.classList.remove("active");
             body.classList.remove("menu-open");
+
+            // Cambia el ícono de vuelta a hamburguesa
+            menuToggle.classList.remove("close");
+            menuToggle.innerHTML = '&#9776;';
 
             // Obtén el ID de la sección a la que se debe desplazar
             const targetId = this.getAttribute("href").substring(1); 
