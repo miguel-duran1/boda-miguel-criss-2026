@@ -38,7 +38,6 @@ window.addEventListener("scroll", function () {
 
 
 // Manejo del menú hamburguesa
-// Manejo del menú hamburguesa
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
@@ -84,6 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+document.addEventListener("touchmove", function (e) {
+    if (body.classList.contains("menu-open")) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
 
 // reveal.js
 

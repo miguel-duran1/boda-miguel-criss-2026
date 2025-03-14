@@ -29,6 +29,12 @@ header {
     cursor: pointer;
 }
 
+body.menu-open {
+    overflow: hidden;
+    position: fixed; /* Evita que el cuerpo se desplace */
+    width: 100%; /* Asegura que el ancho no cambie */
+}
+
 /* Clase para cuando el menú está abierto */
 .menu-toggle.open::before {
     content: "\2715"; 
@@ -57,6 +63,7 @@ nav ul.active {
     left: 0;
     opacity: 1;
     visibility: visible;
+    overflow: hidden;
 }
 
 
