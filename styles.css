@@ -100,7 +100,6 @@ body.menu-open {
     text-align: center;
     color: white;
     background: linear-gradient(to right, #A67B5B, #D8B48C);
-    padding-top: 5px; /* Espacio para el header */
 }
 
 .hero-content {
