@@ -342,3 +342,22 @@ section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+.rsvp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #A67B5B; /* Marrón cálido acorde al tema */
+    color: #F8EDE3; /* Texto champán para contraste */
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Georgia', serif; /* Tipografía elegante */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animaciones suaves */
+}
+
+.rsvp-button:hover {
+    background-color: #C89C74; /* Marrón más claro para el efecto hover */
+    transform: translateY(-3px); /* Efecto de elevación sutil */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
