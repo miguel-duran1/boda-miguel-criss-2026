@@ -361,3 +361,10 @@ section.visible {
     transform: translateY(-3px); /* Efecto de elevación sutil */
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
 }
+
+.rsvp-alternative {
+    font-style: italic;
+    margin-top: 20px;
+    color: #7D6757;
+    font-size: 1rem;
+}
