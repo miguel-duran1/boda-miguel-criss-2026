@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por confirmar! - Boda de Miguel y Cristina</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scroll-progress.js" defer></script>
+    <style>
+        .thanks-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(166, 123, 91, 0.2);
+            text-align: center;
+        }
+        
+        .thanks-icon {
+            font-size: 4rem;
+            color: #A67B5B;
+            margin-bottom: 20px;
+        }
+        
+        .thanks-title {
+            color: #A67B5B;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #5A4A42;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #A67B5B;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #8B5E3C;
+        }
+        
+        .thanks-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #7D6757;
+            margin-bottom: 20px;
+        }
+        
+        .date-reminder {
+            background: linear-gradient(to right, #A67B5B, #D8B48C);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-toggle" id="menu-toggle">
+                &#9776;
+            </div>
+            <ul id="menu" class="hidden">
+                <li><a href="index.html#hero">Inicio</a></li>
+                <li><a href="index.html#info">Información</a></li>
+                <li><a href="index.html#countdown">Cuenta Atrás</a></li>
+                <li><a href="index.html#rsvp">Asistencia</a></li>
+                <li><a href="index.html#gifts">Lista de Regalos</a></li>
+                <li><a href="index.html#location">Ubicación</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="thanks-container">
+            <div class="thanks-icon">❤️</div>
+            <h1 class="thanks-title">¡Gracias por confirmar tu asistencia!</h1>
+            
+            <p class="thanks-message">
+                Hemos recibido tu respuesta correctamente. Nos hace mucha ilusión contar contigo en este día tan especial para nosotros.
+            </p>
+            
+            <p class="thanks-message">
+                Te esperamos con los brazos abiertos para celebrar juntos y crear recuerdos inolvidables.
+            </p>
+            
+            <div class="date-reminder">
+                Recuerda la fecha: <strong>2 de mayo de 2026</strong>
+            </div>
+            
+            <p class="thanks-message">
+                Si necesitas cualquier información adicional, no dudes en contactar con nosotros.
+            </p>
+            
+            <a href="index.html" class="back-link">Volver a la página principal</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Miguel & Cristina - 2 de mayo de 2026</p>
+    </footer>
+    
+    <script>
+        // Manejar el menú hamburguesa
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+            const body = document.body;
+            
+            menuToggle.addEventListener("click", function() {
+                menu.classList.toggle("active");
+                body.classList.toggle("menu-open");
+            });
+        });
+    </script>
+</body>
+</html> 

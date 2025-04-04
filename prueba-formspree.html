@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Formspree</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label, input, button {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px;
+            background: #A67B5B;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Prueba Formspree</h1>
+    <p>Este es un formulario simplificado para probar que Formspree funciona correctamente.</p>
+    
+    <form action="https://formspree.io/f/xeoarpne" method="POST">
+        <!-- Campos básicos -->
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="3"></textarea>
+        
+        <!-- Campo oculto para evitar spam -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <!-- Redirección tras envío -->
+        <input type="hidden" name="_next" value="gracias.html">
+        
+        <!-- Botón de envío -->
+        <button type="submit">Enviar Prueba</button>
+    </form>
+    
+    <p><a href="index.html">Volver a la página principal</a></p>
+</body>
+</html> 
