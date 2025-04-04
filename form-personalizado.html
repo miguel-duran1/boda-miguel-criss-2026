@@ -57,76 +57,48 @@
         
         .radio-group {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
             margin-top: 10px;
-            padding-left: 5px;
+            width: 100%;
         }
         
         .radio-option {
             display: flex;
             align-items: center;
+            width: 50%;
         }
         
         .radio-option input {
             margin-right: 10px;
-            min-width: 18px;
         }
         
         .radio-option label {
             display: inline;
             margin-bottom: 0;
+            text-align: left;
+            font-weight: normal;
         }
         
         @media (max-width: 767px) {
             .radio-option {
                 justify-content: flex-start;
-                width: 100%;
-                padding-right: 10px;
             }
             
-            .radio-option input[type="radio"] {
-                flex: 0 0 auto;
+            .radio-option:first-child {
+                justify-content: flex-start;
             }
             
-            .radio-option label {
-                flex: 1;
-                text-align: left;
-                padding-left: 5px;
-                font-size: 0.95rem;
+            .radio-option:last-child {
+                justify-content: flex-start;
             }
         }
         
-        /* Ajuste de alineación para todos los elementos del formulario */
-        .form-group {
-            margin-bottom: 25px;
-            text-align: left;
-            max-width: 100%;
-        }
-        
-        @media (max-width: 480px) {
-            .page-header {
-                padding: 30px 15px;
-                text-align: center;
-            }
-            
-            .page-header p:last-of-type {
-                width: 100%;
-                box-sizing: border-box;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .form-container {
-                padding: 20px 15px;
-            }
-        }
-        
-        /* Responsive adjustments */
         @media (min-width: 768px) {
             .radio-group {
                 flex-direction: row;
-                gap: 30px;
+                gap: 10px;
             }
         }
         
