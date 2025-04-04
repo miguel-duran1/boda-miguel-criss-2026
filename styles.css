@@ -409,25 +409,27 @@ section.visible {
 
 .particle {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     animation: float linear infinite;
+    z-index: 1;
 }
 
 @keyframes float {
     0% {
         transform: translateY(0) translateX(0) rotate(0);
-        opacity: 0;
+        opacity: 0.2;
     }
-    10% {
+    20% {
         opacity: 0.8;
     }
-    90% {
+    80% {
         opacity: 0.8;
     }
     100% {
-        transform: translateY(-20vh) translateX(20vw) rotate(360deg);
-        opacity: 0;
+        transform: translateY(-30vh) translateX(20vw) rotate(360deg);
+        opacity: 0.2;
     }
 }
 
@@ -473,7 +475,9 @@ section.visible {
 /* Mejora para la experiencia móvil */
 @media (max-width: 768px) {
     .particle {
-        display: none; /* Desactivamos las partículas en móvil para mejorar rendimiento */
+        /* Mostramos las partículas también en móvil pero optimizadas */
+        display: block;
+        opacity: 0.4 !important; /* Reducimos ligeramente la opacidad */
     }
     
     .scroll-progress {

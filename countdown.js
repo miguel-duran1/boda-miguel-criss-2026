@@ -140,6 +140,7 @@ function setupParticles() {
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
             particle.style.animationDuration = `${duration}s`;
+            particle.style.opacity = '0.6'; // Asegurar visibilidad
             
             particlesContainer.appendChild(particle);
         }
