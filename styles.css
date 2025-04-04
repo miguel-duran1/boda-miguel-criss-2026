@@ -368,3 +368,115 @@ section.visible {
     color: #7D6757;
     font-size: 1rem;
 }
+
+/* Animaciones para la cuenta atrás */
+@keyframes countdown-update {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); }
+}
+
+.countdown-update {
+    animation: countdown-update 0.9s ease-in-out;
+}
+
+/* Estilo para el mensaje de celebración */
+.celebration {
+    font-size: 2rem;
+    color: #A67B5B;
+    padding: 20px;
+    text-align: center;
+    animation: celebration 3s infinite;
+}
+
+@keyframes celebration {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Estilos para las partículas */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(20vw) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Barra de progreso */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8px;
+    background: #A67B5B;
+    z-index: 1001;
+    transition: width 0.2s ease;
+}
+
+/* Indicador de enlace activo */
+.active-link {
+    position: relative;
+    color: #A67B5B !important;
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background-color: #A67B5B;
+}
+
+/* Animación de pulso para botones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Mejora para la experiencia móvil */
+@media (max-width: 768px) {
+    .particle {
+        display: none; /* Desactivamos las partículas en móvil para mejorar rendimiento */
+    }
+    
+    .scroll-progress {
+        height: 6px; /* Reducimos el tamaño en móvil pero mantenemos una buena visibilidad */
+    }
+}
