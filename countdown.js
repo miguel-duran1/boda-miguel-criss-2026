@@ -162,18 +162,21 @@ function setupButtonAnimations() {
 
 // Añade una barra de progreso en la parte superior
 function setupScrollProgress() {
-    // Crear la barra de progreso
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
-    
-    // Actualizar la barra de progreso al hacer scroll
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + "%";
-    });
+    // Comprobar si la barra de progreso ya existe (creada por scroll-progress.js)
+    if (!document.querySelector('.scroll-progress')) {
+        // Crear la barra de progreso
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+        
+        // Actualizar la barra de progreso al hacer scroll
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        });
+    }
 }
 
 // Resalta la sección activa en el menú

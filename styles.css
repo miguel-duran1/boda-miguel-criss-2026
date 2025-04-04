@@ -412,9 +412,11 @@ footer {
     top: 0;
     left: 0;
     height: 8px;
-    background: #A67B5B;
+    background: linear-gradient(to right, #A67B5B, #D8935F);
+    box-shadow: 0 2px 4px rgba(166, 123, 91, 0.3);
     z-index: 1001;
     transition: width 0.2s ease;
+    border-radius: 0 4px 4px 0;
 }
 
 /* Indicador de enlace activo */
