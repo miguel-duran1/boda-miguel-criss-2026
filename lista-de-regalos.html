@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Regalos - Boda de Miguel y Cristina</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #5A4A42;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F8EDE3;
+            text-align: center;
+        }
+        header, footer {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(234, 215, 193, 0.9);
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #A67B5B;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #A67B5B;
+            margin-top: 30px;
+            font-size: 2rem;
+        }
+        .gift-info {
+            background-color: white;
+            border: 1px solid #EAD7C1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .account-info {
+            font-size: 1.1em;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(234, 215, 193, 0.5);
+            border-left: 4px solid #A67B5B;
+            text-align: left;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #5A4A42;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #A67B5B;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #8B5E3C;
+            text-decoration: none;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #7D6757;
+            line-height: 1.6;
+        }
+        footer {
+            margin-top: 60px;
+        }
+        
+        /* Media queries para móviles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .account-info {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lista de Regalos</h1>
+        <p>Boda de Miguel y Cristina - 2 de mayo de 2026</p>
+    </header>
+    
+    <main>
+        <section id="message">
+            <h2>Queridos familiares y amigos,</h2>
+            <p>
+                Estamos muy ilusionados por compartir con vosotros uno de los días más especiales de nuestras vidas. 
+                Vuestra presencia en nuestra boda es, sin duda, el mejor regalo que podemos recibir.
+            </p>
+            <p>
+                Para aquellos que habéis preguntado si podéis hacernos algún detalle, hemos habilitado un número de 
+                cuenta donde podéis realizar vuestras aportaciones que nos ayudarán a empezar esta nueva etapa juntos.
+            </p>
+        </section>
+        
+        <section id="account" class="gift-info">
+            <h2>Datos bancarios</h2>
+            <div class="account-info">
+                <p><strong>Titular:</strong> Miguel Durán y Cristina Delgado</p>
+                <p><strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</p>
+                <p><strong>Concepto:</strong> Regalo boda + [Tu nombre]</p>
+            </div>
+            <p>
+                Si prefieres otro método de pago o tienes alguna duda, no dudes en contactarnos directamente.
+            </p>
+        </section>
+        
+        <section id="thanks">
+            <h2>¡Muchas gracias!</h2>
+            <p>
+                Estamos profundamente agradecidos por vuestra generosidad y por formar parte de este momento tan especial.
+                ¡Esperamos celebrar con todos vosotros!
+            </p>
+            <p>Con todo nuestro cariño,</p>
+            <p><em>Miguel y Cristina</em></p>
+        </section>
+    </main>
+    
+    <footer>
+        <a href="index.html" class="back-link">← Volver a la página principal</a>
+    </footer>
+</body>
+</html> 
