@@ -9,24 +9,35 @@
     <script src="particles.js" defer></script>
     <script src="countdown.js" defer></script>
     <script src="reveal.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">M&C</div>
+            
             <div class="menu-toggle" id="menu-toggle">
-                &#9776; <!-- Ícono de hamburguesa -->
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <ul id="menu" class="hidden">
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#info">Información</a></li>
-                <li><a href="#countdown">Cuenta Atrás</a></li>
-                <li><a href="#rsvp">Asistencia</a></li>
-                <li><a href="#gifts">Lista de Regalos</a></li>
-                <li><a href="#location">Ubicación</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
+            
+            <nav>
+                <ul id="menu">
+                    <li style="--i:1"><a href="#hero">Inicio</a></li>
+                    <li style="--i:2"><a href="#info">Información</a></li>
+                    <li style="--i:3"><a href="#countdown">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="#rsvp">Asistencia</a></li>
+                    <li style="--i:5"><a href="#gifts">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="#location">Ubicación</a></li>
+                    <li style="--i:7"><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    
+    <!-- Overlay para cuando el menú está abierto -->
+    <div class="menu-overlay" id="menu-overlay"></div>
     
     <section id="hero">
         <div class="hero-content">
@@ -97,5 +108,6 @@
     <footer>
         <p>Síguenos en redes sociales</p>
     </footer>
+
 </body>
 </html>
