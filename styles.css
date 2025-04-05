@@ -582,8 +582,8 @@ footer {
 .countdown-block {
     margin: 0;
     text-align: center;
-    width: 80px; /* Ancho fijo para cada bloque */
-    margin: 0 8px; /* Añadir margen horizontal para separación */
+    width: 90px; /* Aumentar ancho para cada bloque */
+    margin: 0 10px; /* Añadir margen horizontal para separación */
 }
 
 .countdown-number-container {
@@ -622,7 +622,8 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     display: block;
-    padding-top: 5px; /* Espacio superior adicional */
+    padding-top: 8px; /* Aumentar espacio superior */
+    padding-bottom: 5px; /* Añadir espacio inferior */
     width: 100%; /* Ocupar todo el ancho del bloque */
     text-align: center;
 }
@@ -653,8 +654,8 @@ footer {
 /* Media queries para responsividad */
 @media (max-width: 768px) {
     .countdown-block {
-        width: 65px;
-        margin: 0 5px; /* Reducir margen en pantallas medianas */
+        width: 70px; /* Aumentado ligeramente */
+        margin: 0 8px; /* Aumentado margen */
     }
     
     .countdown-number-container {
@@ -675,8 +676,8 @@ footer {
 
 @media (max-width: 480px) {
     .countdown-block {
-        width: 52px; /* Aumentar ligeramente para evitar solapamiento */
-        margin: 0 3px; /* Margen pequeño pero suficiente */
+        width: 58px; /* Aumentar ligeramente */
+        margin: 0 5px; /* Aumentar margen en móvil */
     }
     
     .countdown-blocks {
@@ -704,6 +705,7 @@ footer {
     .countdown-label {
         font-size: 0.7rem;
         letter-spacing: 0; /* Quitar letter-spacing en móviles */
+        white-space: nowrap; /* Evitar que se corte el texto */
     }
     
     .countdown-message, .countdown-final-message {

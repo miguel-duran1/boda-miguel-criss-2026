@@ -204,11 +204,6 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             
-            // Actualizar los elementos correspondientes con animación
-            updateElementWithAnimation('days', days);
-            updateElementWithAnimation('hours', hours);
-            updateElementWithAnimation('minutes', minutes);
-            updateElementWithAnimation('seconds', seconds);
             
             // Si la cuenta atrás ha terminado
             if (timeLeft < 0) {
@@ -220,19 +215,10 @@
             }
         }
         
-        // Función para actualizar los elementos con animación
-        function updateElementWithAnimation(id, value) {
+        // Función para actualizar con animación
+        function updateWithAnimation(id, value) {
             const element = document.getElementById(id);
-            const currentValue = parseInt(element.textContent || '0');
-            
-            // Si el elemento no tiene ningún valor todavía, simplemente lo establecemos sin animación
-            if (!element.textContent) {
-                element.textContent = value < 10 ? '0' + value : value;
-                return;
-            }
-            
-            // Solo animamos si el valor ha cambiado
-            if (currentValue !== value) {
+            if (element) {
                 // Quitamos la clase anterior
                 element.classList.remove('countdown-update');
                 
@@ -244,6 +230,14 @@
                 
                 // Añadimos la clase para animar
                 element.classList.add('countdown-update');
+            }
+        }
+        
+        // Función para actualizar sin animación
+        function updateWithoutAnimation(id, value) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value < 10 ? '0' + value : value;
             }
         }
         
