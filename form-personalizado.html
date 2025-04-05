@@ -656,7 +656,86 @@
     </footer>
     
     <script>
+
+            // Toggle para el menú hamburguesa
+            const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav ul');
+        const overlay = document.querySelector('.menu-overlay');
+        
+        // Asegurarse de que el menú esté oculto inicialmente
+        nav.classList.add('hidden');
+        
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('hidden');
+                overlay.classList.add('active');
+            } else {
+                setTimeout(() => {
+                    if (!nav.classList.contains('active')) {
+                        nav.classList.add('hidden');
+                    }
+                }, 500); // Mismo tiempo que la duración de la transición en CSS
+                overlay.classList.remove('active');
+            }
+        });
+        
+        // Cerrar el menú al hacer click en el overlay
+        overlay.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            
+            setTimeout(() => {
+                if (!nav.classList.contains('active')) {
+                    nav.classList.add('hidden');
+                }
+            }, 500);
+        });
+        
+        // Cerrar el menú al hacer click en un enlace
+        const menuLinks = document.querySelectorAll('nav ul li a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                
+                setTimeout(() => {
+                    if (!nav.classList.contains('active')) {
+                        nav.classList.add('hidden');
+                    }
+                }, 500);
+            });
+        });
+        
+        // Destacar la sección activa en el menú basado en el scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('nav ul li a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= sectionTop - 200 && 
+                    window.pageYOffset < sectionTop + sectionHeight - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active-link');
+                if (item.getAttribute('href') === '#' + currentSection) {
+                    item.classList.add('active-link');
+                }
+            });
         document.addEventListener('DOMContentLoaded', function() {
+
             // Toggle para el menú hamburguesa - usar el ID correcto y clases correctas
             const menuToggle = document.getElementById('menu-toggle');
             const menu = document.getElementById('menu');
