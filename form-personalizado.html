@@ -309,15 +309,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-wrap: nowrap;
+            gap: 5px;
             margin: 0 auto;
             max-width: 600px;
         }
 
         .countdown-block {
-            margin: 0 5px;
+            margin: 0;
             text-align: center;
+            width: 80px; /* Ancho fijo para cada bloque */
+            margin: 0 8px; /* Añadir margen horizontal para separación */
         }
 
         .countdown-number-container {
@@ -351,6 +353,13 @@
             line-height: 1;
             position: relative;
             display: inline-block;
+            min-width: 1.5em; /* Ancho mínimo para evitar saltos */
+            text-align: center;
+            /* Aseguramos que el texto no causa saltos de layout */
+            height: 2.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .countdown-label {
@@ -359,6 +368,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             display: block;
+            padding-top: 5px; /* Espacio superior adicional */
+            width: 100%; /* Ocupar todo el ancho del bloque */
+            text-align: center;
         }
 
         .countdown-separator {
@@ -366,17 +378,17 @@
             font-size: 2.6rem;
             font-weight: 700;
             line-height: 1;
-            margin-top: -25px;
+            margin: 0 2px; /* Ajustar márgenes */
         }
 
         .countdown-number.countdown-update {
-            animation: countUpdate 0.5s ease-out;
+            animation: countUpdate 0.3s ease-in-out;
         }
 
         @keyframes countUpdate {
             0% {
-                transform: translateY(-20px);
-                opacity: 0;
+                transform: translateY(-3px);
+                opacity: 0.7;
             }
             100% {
                 transform: translateY(0);
@@ -414,46 +426,66 @@
 
         /* Media queries para responsividad */
         @media (max-width: 768px) {
+            .countdown-block {
+                width: 65px;
+                margin: 0 5px; /* Reducir margen en pantallas medianas */
+            }
+            
             .countdown-number-container {
-                width: 70px;
-                height: 70px;
+                width: 65px;
+                height: 65px;
             }
             
             .countdown-number {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                height: 2rem; /* Altura fija para evitar saltos */
             }
             
             .countdown-separator {
-                font-size: 2.2rem;
-                margin-top: -20px;
+                font-size: 2rem;
+                margin: 0 1px; /* Reducir separación en pantallas medianas */
             }
         }
 
         @media (max-width: 480px) {
+            .countdown-block {
+                width: 52px; /* Aumentar ligeramente para evitar solapamiento */
+                margin: 0 3px; /* Margen pequeño pero suficiente */
+            }
+            
             .countdown-blocks {
-                gap: 5px;
+                gap: 2px;
+                flex-wrap: nowrap;
+                justify-content: center;
+                margin: 0 auto;
             }
             
             .countdown-number-container {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
             
             .countdown-number {
-                font-size: 2rem;
+                font-size: 1.6rem;
+                height: 1.6rem; /* Altura fija para evitar saltos */
             }
             
             .countdown-separator {
-                font-size: 2rem;
-                margin-top: -15px;
+                font-size: 1.6rem;
+                margin: 0 0px; /* Sin margen extra en móvil */
+            }
+            
+            .countdown-label {
+                font-size: 0.7rem;
+                letter-spacing: 0; /* Quitar letter-spacing en móviles */
             }
             
             .countdown-message, .countdown-final-message {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .countdown-content {
-                padding: 30px 15px;
+                padding: 25px 10px;
             }
         }
     </style>
@@ -742,11 +774,24 @@
             if (element) {
                 const currentValue = parseInt(element.textContent || '0');
                 
-                // Si el valor ha cambiado, añadimos la animación
-                if (currentValue !== value) {
-                    element.classList.remove('countdown-update');
-                    void element.offsetWidth; // Truco para reiniciar la animación
+                // Si el elemento no tiene ningún valor todavía, simplemente lo establecemos sin animación
+                if (!element.textContent) {
                     element.textContent = value < 10 ? '0' + value : value;
+                    return;
+                }
+                
+                // Solo animamos si el valor ha cambiado
+                if (currentValue !== value) {
+                    // Quitamos la clase anterior
+                    element.classList.remove('countdown-update');
+                    
+                    // Actualizamos el texto
+                    element.textContent = value < 10 ? '0' + value : value;
+                    
+                    // Forzamos un reflow antes de añadir la clase de animación
+                    void element.offsetWidth;
+                    
+                    // Añadimos la clase para animar
                     element.classList.add('countdown-update');
                 }
             }

@@ -223,13 +223,26 @@
         // Función para actualizar los elementos con animación
         function updateElementWithAnimation(id, value) {
             const element = document.getElementById(id);
-            const currentValue = parseInt(element.textContent);
+            const currentValue = parseInt(element.textContent || '0');
             
-            // Si el valor ha cambiado, añadimos la animación
-            if (currentValue !== value) {
-                element.classList.remove('countdown-update');
-                void element.offsetWidth; // Truco para reiniciar la animación
+            // Si el elemento no tiene ningún valor todavía, simplemente lo establecemos sin animación
+            if (!element.textContent) {
                 element.textContent = value < 10 ? '0' + value : value;
+                return;
+            }
+            
+            // Solo animamos si el valor ha cambiado
+            if (currentValue !== value) {
+                // Quitamos la clase anterior
+                element.classList.remove('countdown-update');
+                
+                // Actualizamos el texto
+                element.textContent = value < 10 ? '0' + value : value;
+                
+                // Forzamos un reflow antes de añadir la clase de animación
+                void element.offsetWidth;
+                
+                // Añadimos la clase para animar
                 element.classList.add('countdown-update');
             }
         }
