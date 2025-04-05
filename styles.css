@@ -331,32 +331,164 @@ p {
 }
 
 /* RSVP section */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#rsvp {
+    background: linear-gradient(rgba(234, 215, 193, 0.2), rgba(234, 215, 193, 0.4));
+    border-radius: 15px;
+    padding: 60px 30px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(166, 123, 91, 0.1);
 }
 
-form input {
-    margin: 10px 0;
-    padding: 10px;
-    width: 90%;
-    max-width: 300px;
-    border: 1px solid #A67B5B;
-    border-radius: 5px;
+#rsvp::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(216, 180, 140, 0.1);
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+    z-index: 1;
 }
 
-form button {
-    padding: 10px 20px;
-    background-color: #A67B5B;
+#rsvp::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(216, 180, 140, 0.1);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+    z-index: 1;
+}
+
+#rsvp h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #8B5A2B;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+#rsvp h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #A67B5B, transparent);
+    margin: 15px auto 0;
+}
+
+#rsvp p {
+    color: #5A4A42;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rsvp strong {
+    font-weight: 700;
+    color: #8B5A2B;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.rsvp-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #8B5A2B, #A67B5B);
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    border: 2px solid transparent;
+    letter-spacing: 1px;
 }
-form button:hover {
-    background-color: #8B5E3C;
+
+.rsvp-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(139, 90, 43, 0.4);
+    background: white;
+    color: #8B5A2B;
+    border: 2px solid #8B5A2B;
+}
+
+.rsvp-button::after {
+    content: '→';
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.rsvp-button:hover::after {
+    transform: translateX(5px);
+}
+
+.rsvp-alternative {
+    font-style: italic;
+    color: #7D6757;
+    margin-top: 20px;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.rsvp-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 40px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    #rsvp {
+        padding: 50px 20px;
+    }
+    
+    #rsvp h2 {
+        font-size: 2.4rem;
+    }
+    
+    .rsvp-button {
+        padding: 14px 35px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #rsvp {
+        padding: 40px 15px;
+    }
+    
+    #rsvp h2 {
+        font-size: 2.2rem;
+    }
+    
+    .rsvp-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+        width: 80%;
+    }
 }
 
 /* Location section */
@@ -997,4 +1129,132 @@ footer {
     width: 30px;
     height: 2px;
     background-color: #FFFFFF;
+}
+
+/* Estilos para formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #A67B5B;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #A67B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #8B5E3C;
+}
+
+/* Estilos adicionales para la sección RSVP */
+.rsvp-content {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.rsvp-date-highlight {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px auto;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(166, 123, 91, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.rsvp-date-highlight p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #5A4A42;
+}
+
+.rsvp-icon {
+    font-size: 2.5rem;
+    color: #8B5A2B;
+    margin-left: 20px;
+    opacity: 0.8;
+}
+
+.rsvp-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Animación sutil para la fecha */
+.rsvp-date-highlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.rsvp-date-highlight::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, rgba(166, 123, 91, 0.05) 0%, rgba(255, 255, 255, 0) 50%, rgba(166, 123, 91, 0.05) 100%);
+    animation: shine 3s infinite linear;
+    z-index: -1;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Adaptaciones responsive */
+@media (max-width: 768px) {
+    .rsvp-date-highlight {
+        padding: 15px;
+        flex-direction: column;
+    }
+    
+    .rsvp-icon {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    
+    .rsvp-date-highlight p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .rsvp-date-highlight {
+        padding: 15px 10px;
+    }
+    
+    .rsvp-date-highlight p {
+        font-size: 1.1rem;
+    }
+    
+    .rsvp-icon {
+        font-size: 2rem;
+    }
 }

@@ -493,30 +493,26 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">M&C</a>
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo" id="menu-toggle">M&C</div>
+            
             <nav>
-                <ul class="hidden">
-                    <li><a href="index.html#hero">Inicio</a></li>
-                    <li><a href="index.html#info">Información</a></li>
-                    <li><a href="index.html#countdown">Cuenta Atrás</a></li>
-                    <li><a href="index.html#rsvp">RSVP</a></li>
-                    <li><a href="index.html#gifts">Regalos</a></li>
-                    <li><a href="index.html#location">Ubicación</a></li>
-                    <li><a href="index.html#contact">Contacto</a></li>
+                <ul id="menu">
+                    <li style="--i:1"><a href="index.html#hero">Inicio</a></li>
+                    <li style="--i:2"><a href="index.html#info">Información</a></li>
+                    <li style="--i:3"><a href="index.html#countdown">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="index.html#rsvp">Asistencia</a></li>
+                    <li style="--i:5"><a href="index.html#gifts">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="index.html#location">Ubicación</a></li>
+                    <li style="--i:7"><a href="index.html#contact">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="menu-overlay"></div>
+    
+    <!-- Overlay para cuando el menú está abierto -->
+    <div class="menu-overlay" id="menu-overlay"></div>
 
     <section id="countdown">
         <div class="countdown-container-wrapper">
@@ -661,165 +657,128 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mostrar u ocultar el detalle de restricciones alimentarias
-            const dietarySelect = document.getElementById('dietary');
-            const dietaryDetails = document.getElementById('dietary-details');
+            // Toggle para el menú hamburguesa - usar el ID correcto y clases correctas
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            const menuOverlay = document.getElementById('menu-overlay');
             
-            dietarySelect.addEventListener('change', function() {
-                if (this.value === 'Otra') {
-                    dietaryDetails.style.display = 'block';
-                } else {
-                    dietaryDetails.style.display = 'none';
-                }
-            });
+            if (menuToggle && menu && menuOverlay) {
+                // Inicialmente ocultar el menú
+                menu.classList.add('hidden');
+                
+                // Añadir evento de click al logo/toggle
+                menuToggle.addEventListener('click', function() {
+                    menuToggle.classList.toggle('active');
+                    menu.classList.toggle('active');
+                    
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('hidden');
+                        menuOverlay.classList.add('active');
+                        document.body.classList.add('menu-open');
+                    } else {
+                        setTimeout(() => {
+                            if (!menu.classList.contains('active')) {
+                                menu.classList.add('hidden');
+                            }
+                        }, 500); // Tiempo de transición en CSS
+                        menuOverlay.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+                
+                // Cerrar menú al hacer click en overlay
+                menuOverlay.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    menu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    
+                    setTimeout(() => {
+                        if (!menu.classList.contains('active')) {
+                            menu.classList.add('hidden');
+                        }
+                    }, 500);
+                });
+                
+                // Cerrar menú al hacer click en enlaces
+                const menuLinks = document.querySelectorAll('#menu li a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        menu.classList.remove('active');
+                        menuOverlay.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        
+                        setTimeout(() => {
+                            if (!menu.classList.contains('active')) {
+                                menu.classList.add('hidden');
+                            }
+                        }, 500);
+                    });
+                });
+            }
             
-            // Mostrar u ocultar campos relacionados con la asistencia
-            const attendingYes = document.getElementById('attending-yes');
-            const attendingNo = document.getElementById('attending-no');
-            const guestsGroup = document.getElementById('guests-group');
-            const dietaryGroup = document.getElementById('dietary-group');
-            
-            attendingYes.addEventListener('change', function() {
-                if (this.checked) {
-                    guestsGroup.style.display = 'block';
-                    dietaryGroup.style.display = 'block';
-                }
-            });
-            
-            attendingNo.addEventListener('change', function() {
-                if (this.checked) {
-                    guestsGroup.style.display = 'none';
-                    dietaryGroup.style.display = 'none';
-                }
-            });
-
-            // Manejo del envío del formulario con AJAX
+            // Validación del formulario
             const form = document.getElementById('rsvp-form');
-            const formStatus = document.getElementById('form-status');
-            const successMessage = document.getElementById('success-message');
             
-            async function handleSubmit(event) {
+            function handleSubmit(event) {
                 event.preventDefault();
                 
-                // Mostrar indicador de carga
-                formStatus.innerHTML = "Enviando tu respuesta...";
-                formStatus.style.display = "block";
-                formStatus.className = "form-status";
+                // Validación básica
+                const fullName = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const willAttend = document.querySelector('input[name="attending"]:checked');
                 
-                try {
-                    const data = new FormData(form);
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
+                if (!fullName || !email || !willAttend) {
+                    alert('Por favor, completa todos los campos requeridos.');
+                    return;
+                }
+                
+                // Mostrar mensaje de éxito
+                form.style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                
+                // Enviar el formulario a Formspree
+                form.submit();
+            }
+            
+            if (form) {
+                form.addEventListener('submit', handleSubmit);
+            }
+            
+            
+            // Función para actualizar con animación
+            function updateWithAnimation(id, value) {
+                const element = document.getElementById(id);
+                if (element) {
+                    // Quitamos la clase anterior
+                    element.classList.remove('countdown-update');
                     
-                    if (response.ok) {
-                        // Ocultar formulario y mostrar mensaje de éxito
-                        form.style.display = 'none';
-                        successMessage.style.display = 'block';
-                        successMessage.scrollIntoView({behavior: 'smooth'});
-                    } else {
-                        const responseData = await response.json();
-                        if (Object.hasOwn(responseData, 'errors')) {
-                            formStatus.innerHTML = responseData.errors.map(error => error.message).join(", ");
-                        } else {
-                            formStatus.innerHTML = "Lo sentimos, ha ocurrido un problema al enviar el formulario. Por favor, inténtalo de nuevo.";
-                        }
-                        formStatus.className = "form-status error";
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    formStatus.innerHTML = "Lo sentimos, ha ocurrido un problema al enviar el formulario. Por favor, inténtalo de nuevo.";
-                    formStatus.className = "form-status error";
+                    // Actualizamos el texto
+                    element.textContent = value < 10 ? '0' + value : value;
+                    
+                    // Forzamos un reflow antes de añadir la clase de animación
+                    void element.offsetWidth;
+                    
+                    // Añadimos la clase para animar
+                    element.classList.add('countdown-update');
                 }
             }
             
-            // Añadir el manejador de eventos al formulario
-            form.addEventListener('submit', handleSubmit);
+            // Función para actualizar sin animación
+            function updateWithoutAnimation(id, value) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value < 10 ? '0' + value : value;
+                }
+            }
+            
+            // Iniciar la cuenta atrás si los elementos existen
+            if (document.getElementById('days')) {
+                updateCountdown();
+                const countdownTimer = setInterval(updateCountdown, 1000);
+            }
         });
-
-        // Función para la cuenta atrás
-        function updateCountdown() {
-            // Fecha de la boda - 8 de junio de 2026
-            const weddingDate = new Date('2026-06-08T17:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = weddingDate - now;
-            
-            // Cálculo de días, horas, minutos y segundos
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            // Almacenar valores anteriores para comparar
-            const daysElement = document.getElementById('days');
-            const hoursElement = document.getElementById('hours');
-            const minutesElement = document.getElementById('minutes');
-            const secondsElement = document.getElementById('seconds');
-            
-            if (daysElement && hoursElement && minutesElement && secondsElement) {
-                const oldDays = parseInt(daysElement.textContent || '0');
-                const oldHours = parseInt(hoursElement.textContent || '0');
-                const oldMinutes = parseInt(minutesElement.textContent || '0');
-                const oldSeconds = parseInt(secondsElement.textContent || '0');
-                
-                // Actualizar solo si el valor ha cambiado
-                if (days !== oldDays) updateWithAnimation('days', days);
-                if (hours !== oldHours) updateWithAnimation('hours', hours);
-                if (minutes !== oldMinutes) updateWithAnimation('minutes', minutes);
-                if (seconds !== oldSeconds) updateWithAnimation('seconds', seconds);
-                
-                // Actualizar sin animación si es la primera vez (cuando no hay texto)
-                if (!daysElement.textContent) updateWithoutAnimation('days', days);
-                if (!hoursElement.textContent) updateWithoutAnimation('hours', hours);
-                if (!minutesElement.textContent) updateWithoutAnimation('minutes', minutes);
-                if (!secondsElement.textContent) updateWithoutAnimation('seconds', seconds);
-                
-                // Si la cuenta atrás ha terminado
-                if (timeLeft < 0) {
-                    clearInterval(countdownTimer);
-                    document.getElementById('countdown-timer').style.display = 'none';
-                    document.getElementById('countdown-message').style.display = 'none';
-                    document.getElementById('countdown-final-message').style.display = 'none';
-                    document.getElementById('celebration-message').style.display = 'block';
-                }
-            }
-        }
-        
-        // Función para actualizar con animación
-        function updateWithAnimation(id, value) {
-            const element = document.getElementById(id);
-            if (element) {
-                // Quitamos la clase anterior
-                element.classList.remove('countdown-update');
-                
-                // Actualizamos el texto
-                element.textContent = value < 10 ? '0' + value : value;
-                
-                // Forzamos un reflow antes de añadir la clase de animación
-                void element.offsetWidth;
-                
-                // Añadimos la clase para animar
-                element.classList.add('countdown-update');
-            }
-        }
-        
-        // Función para actualizar sin animación
-        function updateWithoutAnimation(id, value) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.textContent = value < 10 ? '0' + value : value;
-            }
-        }
-        
-        // Iniciar la cuenta atrás si los elementos existen
-        if (document.getElementById('days')) {
-            updateCountdown();
-            const countdownTimer = setInterval(updateCountdown, 1000);
-        }
     </script>
 </body>
 </html> 
