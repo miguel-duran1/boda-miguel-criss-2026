@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-progress.js" defer></script>
     <script src="countdown.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .form-container {
@@ -217,123 +218,408 @@
             color: #a94442;
             border-left: 4px solid #a94442;
         }
+
+        /* Estilos para la cuenta atrás */
+        #countdown {
+            background: linear-gradient(rgba(165, 123, 91, 0.1), rgba(139, 90, 43, 0.15));
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #countdown::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(216, 180, 140, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
+
+        #countdown::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(216, 180, 140, 0.08);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .countdown-container-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown-content {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .countdown-content h2 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            color: #8B5A2B;
+            font-style: italic;
+        }
+
+        .decorative-line {
+            position: relative;
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, rgba(139, 90, 43, 0.5), transparent);
+            margin: 15px auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .decorative-diamond {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border: 1px solid rgba(139, 90, 43, 0.5);
+            transform: rotate(45deg);
+        }
+
+        .countdown-message {
+            font-size: 1.4rem;
+            color: #A67B5B;
+            margin: 30px 0 20px;
+            font-style: italic;
+        }
+
+        .countdown-final-message {
+            font-size: 1.4rem;
+            color: #A67B5B;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        .countdown-blocks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .countdown-block {
+            margin: 0 5px;
+            text-align: center;
+        }
+
+        .countdown-number-container {
+            background: linear-gradient(135deg, #8B5A2B, #A67B5B);
+            color: white;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(166, 123, 91, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-number-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .countdown-number {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+
+        .countdown-label {
+            color: #5A4A42;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        .countdown-separator {
+            color: #8B5A2B;
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-top: -25px;
+        }
+
+        .countdown-number.countdown-update {
+            animation: countUpdate 0.5s ease-out;
+        }
+
+        @keyframes countUpdate {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        #celebration-message {
+            text-align: center;
+            padding: 20px 0;
+            animation: celebrate 1.5s ease-in-out infinite alternate;
+        }
+
+        #celebration-message h3 {
+            font-size: 2.8rem;
+            color: #8B5A2B;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        #celebration-message p {
+            font-size: 1.5rem;
+            color: #A67B5B;
+            font-style: italic;
+        }
+
+        @keyframes celebrate {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 768px) {
+            .countdown-number-container {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .countdown-number {
+                font-size: 2.2rem;
+            }
+            
+            .countdown-separator {
+                font-size: 2.2rem;
+                margin-top: -20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-blocks {
+                gap: 5px;
+            }
+            
+            .countdown-number-container {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .countdown-separator {
+                font-size: 2rem;
+                margin-top: -15px;
+            }
+            
+            .countdown-message, .countdown-final-message {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-content {
+                padding: 30px 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-container">
-            <div class="logo" id="menu-toggle">M&C</div>
-            
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">M&C</a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
-                <ul id="menu">
-                    <li style="--i:1"><a href="index.html#hero">Inicio</a></li>
-                    <li style="--i:2"><a href="index.html#info">Información</a></li>
-                    <li style="--i:3"><a href="index.html#countdown">Cuenta Atrás</a></li>
-                    <li style="--i:4"><a href="index.html#rsvp">Asistencia</a></li>
-                    <li style="--i:5"><a href="index.html#gifts">Lista de Regalos</a></li>
-                    <li style="--i:6"><a href="index.html#location">Ubicación</a></li>
-                    <li style="--i:7"><a href="index.html#contact">Contacto</a></li>
+                <ul class="hidden">
+                    <li><a href="index.html#hero">Inicio</a></li>
+                    <li><a href="index.html#info">Información</a></li>
+                    <li><a href="index.html#countdown">Cuenta Atrás</a></li>
+                    <li><a href="index.html#rsvp">RSVP</a></li>
+                    <li><a href="index.html#gifts">Regalos</a></li>
+                    <li><a href="index.html#location">Ubicación</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
-    <!-- Overlay para cuando el menú está abierto -->
-    <div class="menu-overlay" id="menu-overlay"></div>
-    
-    <main>
-        <section>
-            <div class="page-header">
-                <h1>Confirma tu Asistencia</h1>
-                <p>¡Nos encantaría contar contigo en nuestro gran día!</p>
-                <p>Por favor, confirma antes del <span class="important-date">31 de marzo de 2026</span></p>
+    <div class="menu-overlay"></div>
+
+    <section id="countdown">
+        <div class="countdown-container-wrapper">
+            <div class="countdown-content">
+                <h2>Cuenta Atrás</h2>
+                <div class="decorative-line">
+                    <span class="decorative-diamond"></span>
+                </div>
+                <p class="countdown-message">Nos vemos en</p>
+                
+                <div id="countdown-timer" class="countdown-blocks">
+                    <div class="countdown-block">
+                        <div class="countdown-number-container">
+                            <span id="days" class="countdown-number"></span>
+                        </div>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    
+                    <div class="countdown-separator">:</div>
+                    
+                    <div class="countdown-block">
+                        <div class="countdown-number-container">
+                            <span id="hours" class="countdown-number"></span>
+                        </div>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    
+                    <div class="countdown-separator">:</div>
+                    
+                    <div class="countdown-block">
+                        <div class="countdown-number-container">
+                            <span id="minutes" class="countdown-number"></span>
+                        </div>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    
+                    <div class="countdown-separator">:</div>
+                    
+                    <div class="countdown-block">
+                        <div class="countdown-number-container">
+                            <span id="seconds" class="countdown-number"></span>
+                        </div>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+                <p class="countdown-final-message">para nuestro gran día</p>
+                <div id="celebration-message" style="display: none;">
+                    <h3>¡HOY ES EL GRAN DÍA!</h3>
+                    <p>¡Gracias por compartir este momento tan especial con nosotros!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-container">
+        <form id="rsvp-form" action="https://formspree.io/f/xeoarpne" method="POST">
+            <!-- Email (importante para Formspree) -->
+            <div class="form-group">
+                <label for="email">Email<span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
             </div>
             
-            <div class="form-container">
-                <form id="rsvp-form" action="https://formspree.io/f/xeoarpne" method="POST">
-                    <!-- Email (importante para Formspree) -->
-                    <div class="form-group">
-                        <label for="email">Email<span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <!-- Nombre completo -->
-                    <div class="form-group">
-                        <label for="name">Nombre completo<span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <!-- Teléfono -->
-                    <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <!-- Asistencia -->
-                    <div class="form-group">
-                        <label>¿Asistirás a nuestra boda?<span class="required">*</span></label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="attending-yes" name="attending" value="Sí, asistiré" required>
-                                <label for="attending-yes">Sí, asistiré</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="attending-no" name="attending" value="No podré asistir">
-                                <label for="attending-no">No podré asistir</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Número de invitados -->
-                    <div class="form-group" id="guests-group">
-                        <label for="guests">Número de invitados (incluyéndote)</label>
-                        <input type="number" id="guests" name="guests" min="1" value="1">
-                    </div>
-                    
-                    <!-- Restricciones alimentarias -->
-                    <div class="form-group" id="dietary-group">
-                        <label for="dietary">¿Tienes alguna restricción alimentaria?</label>
-                        <select id="dietary" name="dietary">
-                            <option value="No, ninguna">No, ninguna</option>
-                            <option value="Vegetariano">Vegetariano</option>
-                            <option value="Vegano">Vegano</option>
-                            <option value="Sin gluten">Sin gluten</option>
-                            <option value="Otra">Otra</option>
-                        </select>
-                        
-                        <div id="dietary-details" class="dietary-options" style="display: none;">
-                            <label for="dietary-specifics">Por favor, especifica tus restricciones alimentarias:</label>
-                            <textarea id="dietary-specifics" name="dietary-specifics" rows="3"></textarea>
-                        </div>
-                    </div>
-                    
-                    <!-- Mensaje para los novios -->
-                    <div class="form-group">
-                        <label for="message">¿Te gustaría dejar algún mensaje para los novios?</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
-                    </div>
-                    
-                    <!-- Configuración de Formspree -->
-                    <input type="hidden" name="_subject" value="Nueva confirmación de asistencia - Boda Miguel y Cristina">
-                    
-                    <!-- Estado del formulario -->
-                    <div id="form-status" class="form-status"></div>
-                    
-                    <!-- Botón de envío -->
-                    <button type="submit" class="submit-btn">Confirmar Asistencia</button>
-                </form>
-                
-                <!-- Mensaje de éxito -->
-                <div class="success-message" id="success-message">
-                    <h3>¡Gracias por confirmar tu asistencia!</h3>
-                    <p>Hemos recibido tu respuesta correctamente.</p>
-                    <p>Estamos deseando compartir contigo nuestro día especial.</p>
-                </div>
-                
-                <a href="index.html" class="back-link">← Volver a la página principal</a>
+            <!-- Nombre completo -->
+            <div class="form-group">
+                <label for="name">Nombre completo<span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
             </div>
-        </section>
-    </main>
+            
+            <!-- Teléfono -->
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <!-- Asistencia -->
+            <div class="form-group">
+                <label>¿Asistirás a nuestra boda?<span class="required">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="attending-yes" name="attending" value="Sí, asistiré" required>
+                        <label for="attending-yes">Sí, asistiré</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="attending-no" name="attending" value="No podré asistir">
+                        <label for="attending-no">No podré asistir</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Número de invitados -->
+            <div class="form-group" id="guests-group">
+                <label for="guests">Número de invitados (incluyéndote)</label>
+                <input type="number" id="guests" name="guests" min="1" value="1">
+            </div>
+            
+            <!-- Restricciones alimentarias -->
+            <div class="form-group" id="dietary-group">
+                <label for="dietary">¿Tienes alguna restricción alimentaria?</label>
+                <select id="dietary" name="dietary">
+                    <option value="No, ninguna">No, ninguna</option>
+                    <option value="Vegetariano">Vegetariano</option>
+                    <option value="Vegano">Vegano</option>
+                    <option value="Sin gluten">Sin gluten</option>
+                    <option value="Otra">Otra</option>
+                </select>
+                
+                <div id="dietary-details" class="dietary-options" style="display: none;">
+                    <label for="dietary-specifics">Por favor, especifica tus restricciones alimentarias:</label>
+                    <textarea id="dietary-specifics" name="dietary-specifics" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <!-- Mensaje para los novios -->
+            <div class="form-group">
+                <label for="message">¿Te gustaría dejar algún mensaje para los novios?</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            
+            <!-- Configuración de Formspree -->
+            <input type="hidden" name="_subject" value="Nueva confirmación de asistencia - Boda Miguel y Cristina">
+            
+            <!-- Estado del formulario -->
+            <div id="form-status" class="form-status"></div>
+            
+            <!-- Botón de envío -->
+            <button type="submit" class="submit-btn">Confirmar Asistencia</button>
+        </form>
+        
+        <!-- Mensaje de éxito -->
+        <div class="success-message" id="success-message">
+            <h3>¡Gracias por confirmar tu asistencia!</h3>
+            <p>Hemos recibido tu respuesta correctamente.</p>
+            <p>Estamos deseando compartir contigo nuestro día especial.</p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Volver a la página principal</a>
+    </div>
     
     <footer>
         <p>Miguel & Cristina - 2 de mayo de 2026</p>
@@ -420,6 +706,57 @@
             // Añadir el manejador de eventos al formulario
             form.addEventListener('submit', handleSubmit);
         });
+
+        // Función para la cuenta atrás
+        function updateCountdown() {
+            // Fecha de la boda - 8 de junio de 2026
+            const weddingDate = new Date('2026-06-08T17:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+            
+            // Cálculo de días, horas, minutos y segundos
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Actualizar los elementos correspondientes con animación
+            updateElementWithAnimation('days', days);
+            updateElementWithAnimation('hours', hours);
+            updateElementWithAnimation('minutes', minutes);
+            updateElementWithAnimation('seconds', seconds);
+            
+            // Si la cuenta atrás ha terminado
+            if (timeLeft < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown-timer').style.display = 'none';
+                document.getElementById('countdown-message').style.display = 'none';
+                document.getElementById('countdown-final-message').style.display = 'none';
+                document.getElementById('celebration-message').style.display = 'block';
+            }
+        }
+        
+        // Función para actualizar los elementos con animación
+        function updateElementWithAnimation(id, value) {
+            const element = document.getElementById(id);
+            if (element) {
+                const currentValue = parseInt(element.textContent || '0');
+                
+                // Si el valor ha cambiado, añadimos la animación
+                if (currentValue !== value) {
+                    element.classList.remove('countdown-update');
+                    void element.offsetWidth; // Truco para reiniciar la animación
+                    element.textContent = value < 10 ? '0' + value : value;
+                    element.classList.add('countdown-update');
+                }
+            }
+        }
+        
+        // Iniciar la cuenta atrás si los elementos existen
+        if (document.getElementById('days')) {
+            updateCountdown();
+            const countdownTimer = setInterval(updateCountdown, 1000);
+        }
     </script>
 </body>
 </html> 

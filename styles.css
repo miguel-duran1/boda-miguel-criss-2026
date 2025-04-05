@@ -505,106 +505,441 @@ footer {
 }
 
 #countdown {
+    background: linear-gradient(rgba(165, 123, 91, 0.1), rgba(139, 90, 43, 0.15));
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#countdown::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(216, 180, 140, 0.05);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+#countdown::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(216, 180, 140, 0.08);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+}
+
+.countdown-container-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.countdown-content {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 50px 30px;
     text-align: center;
+}
+
+.countdown-content h2 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    color: #8B5A2B;
+    font-style: italic;
+}
+
+.countdown-message {
+    font-size: 1.4rem;
+    color: #A67B5B;
+    margin: 30px 0 20px;
+    font-style: italic;
+}
+
+.countdown-final-message {
+    font-size: 1.4rem;
+    color: #A67B5B;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+.countdown-blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.countdown-block {
+    margin: 0 5px;
+    text-align: center;
+}
+
+.countdown-number-container {
+    background: linear-gradient(135deg, #8B5A2B, #A67B5B);
+    color: white;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(166, 123, 91, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-number-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.countdown-number {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+}
+
+.countdown-label {
+    color: #5A4A42;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.countdown-separator {
+    color: #8B5A2B;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: -25px;
+}
+
+.countdown-number.countdown-update {
+    animation: countUpdate 0.5s ease-out;
+}
+
+@keyframes countUpdate {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .countdown-number-container {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .countdown-number {
+        font-size: 2.2rem;
+    }
+    
+    .countdown-separator {
+        font-size: 2.2rem;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-blocks {
+        gap: 5px;
+    }
+    
+    .countdown-number-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .countdown-separator {
+        font-size: 2rem;
+        margin-top: -15px;
+    }
+    
+    .countdown-message, .countdown-final-message {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-content {
+        padding: 30px 15px;
+    }
+}
+
+/* Estilos para la sección de información */
+#info {
+    padding: 60px 20px;
+    background-color: #f9f5f0;
+    position: relative;
+}
+
+#info::before, #info::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    left: 0;
+    background-size: 25px 25px;
+    background-repeat: repeat-x;
+}
+
+#info::before {
+    top: 0;
+    background-image: radial-gradient(circle at 12.5px -12.5px, transparent 20px, #f9f5f0 20px);
+}
+
+#info::after {
+    bottom: 0;
+    background-image: radial-gradient(circle at 12.5px 37.5px, transparent 20px, #f9f5f0 20px);
+}
+
+.info-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.info-header h2 {
+    font-size: 2.8rem;
+    color: #8B5A2B;
+    margin-bottom: 15px;
+}
+
+.decorative-line {
+    width: 150px;
+    height: 2px;
+    background-color: #D8B48C;
+    margin: 0 auto 25px;
+    position: relative;
+}
+
+.decorative-diamond {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #8B5A2B;
+    transform: rotate(45deg);
+    top: -4px;
+    left: 50%;
+    margin-left: -5px;
+}
+
+.info-date {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: #A67B5B;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* Tarjetas de eventos */
+.event-cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.event-divider {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 80px;
 }
 
-.countdown-item {
-    flex: 0 0 auto;
-    width: 80px; /* Ancho fijo más pequeño para ajustarse horizontalmente */
-    background-color: rgba(234, 215, 193, 0.8);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+.vertical-line {
+    width: 2px;
+    height: 50px;
+    background-color: #D8B48C;
 }
 
-/* Estilos para los números y etiquetas */
-.countdown-number {
-    font-size: 2rem;
-    color: #5A4A42;
-    display: block;
-}
-
-.countdown-label {
-    font-size: 1rem;
-    color: #7D6757;
-}
-
-/* Animación para los números */
-@keyframes flip {
-    0% { transform: rotateX(0deg); }
-    50% { transform: rotateX(90deg); }
-    100% { transform: rotateX(0deg); }
-}
-
-.countdown-number {
-    animation: flip 1s ease-in-out;
-}
-
-/* Animaciones para la cuenta atrás */
-@keyframes countdown-update {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); opacity: 0.7; }
-    100% { transform: scale(1); }
-}
-
-.countdown-update {
-    animation: countdown-update 0.9s ease-in-out;
-}
-
-/* Estilo para el mensaje de celebración */
-.celebration {
-    font-size: 2rem;
-    color: #A67B5B;
-    padding: 20px;
-    text-align: center;
-    animation: celebration 3s infinite;
-}
-
-@keyframes celebration {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-/* Estilos para las partículas */
-.particles-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.particle {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+.divider-circle {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    animation: float linear infinite;
-    z-index: 1;
+    background-color: #8B5A2B;
+    margin: 10px 0;
 }
 
-@keyframes float {
+.event-icon {
+    font-size: 2.5rem;
+    color: #8B5A2B;
+    margin-bottom: 20px;
+}
+
+.event-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #8B5A2B;
+}
+
+.event-time {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #A67B5B;
+    margin-bottom: 15px;
+}
+
+.event-location, .event-address, .event-city, .event-note, .event-end {
+    margin: 5px 0;
+    color: #5A4A42;
+}
+
+.event-location {
+    font-weight: 600;
+}
+
+/* Código de vestimenta */
+.dress-code {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dress-code h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #8B5A2B;
+}
+
+.dress-code p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #5A4A42;
+}
+
+.dress-icons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.dress-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dress-icon-container i {
+    font-size: 2rem;
+    color: #8B5A2B;
+    margin-bottom: 10px;
+}
+
+.dress-icon-container span {
+    font-size: 1rem;
+    color: #5A4A42;
+}
+
+.more-info {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: #8B5A2B;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .event-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .event-divider {
+        flex-direction: row;
+        width: 100%;
+        height: 60px;
+    }
+    
+    .vertical-line {
+        width: 80px;
+        height: 2px;
+    }
+    
+    .dress-icons {
+        gap: 30px;
+    }
+}
+
+#celebration-message {
+    text-align: center;
+    padding: 20px 0;
+    animation: celebrate 1.5s ease-in-out infinite alternate;
+}
+
+#celebration-message h3 {
+    font-size: 2.8rem;
+    color: #8B5A2B;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+#celebration-message p {
+    font-size: 1.5rem;
+    color: #A67B5B;
+    font-style: italic;
+}
+
+@keyframes celebrate {
     0% {
-        transform: translateY(0) translateX(0) rotate(0);
-        opacity: 0.2;
-    }
-    20% {
-        opacity: 0.8;
-    }
-    80% {
-        opacity: 0.8;
+        transform: scale(1);
     }
     100% {
-        transform: translateY(-30vh) translateX(20vw) rotate(360deg);
-        opacity: 0.2;
+        transform: scale(1.05);
     }
 }
 
@@ -619,12 +954,14 @@ footer {
     z-index: 1001;
     transition: width 0.2s ease;
     border-radius: 0 4px 4px 0;
+    width: 0;
 }
 
 /* Indicador de enlace activo */
 .active-link {
     position: relative;
-    color: #A67B5B !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
 }
 
 .active-link::after {
@@ -633,52 +970,7 @@ footer {
     bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
+    width: 30px;
     height: 2px;
-    background-color: #A67B5B;
-}
-
-/* Animación de pulso para botones */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
-    100% { transform: scale(1); }
-}
-
-.pulse {
-    animation: pulse 0.5s ease-in-out;
-}
-
-/* Mejora para la experiencia móvil */
-@media (max-width: 768px) {
-    .particle {
-        /* Mostramos las partículas también en móvil pero optimizadas */
-        display: block;
-        opacity: 0.4 !important; /* Reducimos ligeramente la opacidad */
-    }
-    
-    .scroll-progress {
-        height: 6px; /* Reducimos el tamaño en móvil pero mantenemos una buena visibilidad */
-    }
-}
-
-@media (max-width: 480px) {
-    .countdown-container {
-        gap: 10px; /* Reducir el espacio entre elementos en móvil */
-        max-width: 100%; /* Usar todo el ancho disponible */
-        padding: 0 5px; /* Reducir padding */
-    }
-    
-    .countdown-item {
-        width: 70px; /* Reducir aún más el ancho para que quepan los 4 */
-        padding: 10px; /* Reducir padding */
-    }
-    
-    .countdown-number {
-        font-size: 1.8rem; /* Reducir ligeramente el tamaño del número */
-    }
-    
-    .countdown-label {
-        font-size: 0.9rem; /* Reducir ligeramente el tamaño de la etiqueta */
-    }
+    background-color: #FFFFFF;
 }
