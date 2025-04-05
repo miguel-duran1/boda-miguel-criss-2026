@@ -160,7 +160,7 @@ nav ul {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 50%; /* Exactamente la mitad de la pantalla */
     height: 100vh;
     background: linear-gradient(135deg, #A67B5B, #8B5A2B);
     z-index: 999;
@@ -170,6 +170,7 @@ nav ul {
     justify-content: center;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
+    text-align: left;
 }
 
 nav ul.active {
@@ -182,6 +183,7 @@ nav ul li {
     transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
     transition-delay: calc(0.1s * var(--i, 0));
+    padding-left: 20px;
 }
 
 nav ul.active li {
@@ -224,12 +226,19 @@ body.menu-open {
 /* Ajustes responsive para el menú */
 @media (max-width: 768px) {
     nav ul {
-        width: 100%;
+        width: 50%; /* Mantener el mismo ancho en móviles */
         padding-top: 80px;
     }
     
     .logo {
         font-size: 1.8rem;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    nav ul {
+        width: 50%; /* Mantener el mismo ancho en pantallas pequeñas */
     }
 }
 
@@ -452,8 +461,8 @@ footer {
     
     /* Ajustar el menú para que no cause overflow */
     nav ul {
-        width: 100%;
-        max-width: 100%;
+        width: 50%; /* Exactamente la mitad de la pantalla */
+        max-width: 50%;
     }
 
     #location iframe {

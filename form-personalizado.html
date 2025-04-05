@@ -6,6 +6,7 @@
     <title>Confirma tu Asistencia - Boda de Miguel y Cristina</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-progress.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .form-container {
             max-width: 600px;
@@ -218,22 +219,32 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">M&C</div>
+            
             <div class="menu-toggle" id="menu-toggle">
-                &#9776;
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <ul id="menu" class="hidden">
-                <li><a href="index.html#hero">Inicio</a></li>
-                <li><a href="index.html#info">Información</a></li>
-                <li><a href="index.html#countdown">Cuenta Atrás</a></li>
-                <li><a href="index.html#rsvp">Asistencia</a></li>
-                <li><a href="index.html#gifts">Lista de Regalos</a></li>
-                <li><a href="index.html#location">Ubicación</a></li>
-                <li><a href="index.html#contact">Contacto</a></li>
-            </ul>
-        </nav>
+            
+            <nav>
+                <ul id="menu">
+                    <li style="--i:1"><a href="index.html#hero">Inicio</a></li>
+                    <li style="--i:2"><a href="index.html#info">Información</a></li>
+                    <li style="--i:3"><a href="index.html#countdown">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="index.html#rsvp">Asistencia</a></li>
+                    <li style="--i:5"><a href="index.html#gifts">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="index.html#location">Ubicación</a></li>
+                    <li style="--i:7"><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    
+    <!-- Overlay para cuando el menú está abierto -->
+    <div class="menu-overlay" id="menu-overlay"></div>
     
     <main>
         <section>
@@ -334,15 +345,49 @@
     </footer>
     
     <script>
-        // Manejar el menú hamburguesa
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuToggle = document.getElementById("menu-toggle");
-            const menu = document.getElementById("menu");
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            const menuOverlay = document.getElementById('menu-overlay');
             const body = document.body;
+            const header = document.querySelector('.site-header');
+            const menuItems = document.querySelectorAll('nav ul li a');
             
-            menuToggle.addEventListener("click", function() {
-                menu.classList.toggle("active");
-                body.classList.toggle("menu-open");
+            // Toggle menu
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                menu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                body.classList.toggle('menu-open');
+            });
+            
+            // Close menu when clicking overlay
+            menuOverlay.addEventListener('click', function() {
+                closeMenu();
+            });
+            
+            // Close menu when clicking a menu item
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+            
+            // Función para cerrar el menú
+            function closeMenu() {
+                menuToggle.classList.remove('active');
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
             
             // Mostrar u ocultar el detalle de restricciones alimentarias
