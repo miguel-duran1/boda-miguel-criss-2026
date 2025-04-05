@@ -79,58 +79,43 @@ header {
     color: #8B5A2B;
     text-decoration: none;
     letter-spacing: 2px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 1001;
 }
 
 .logo:hover {
     transform: scale(1.05);
 }
 
+/* Mejorar la transición del logo */
+.logo.active {
+    color: #8B5A2B; /* Mantener el mismo color */
+}
+
+/* Indicador visual de menú en el logo */
+.logo::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #8B5A2B;
+    border-bottom: 2px solid #8B5A2B;
+    transform: rotate(45deg);
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo.active::after {
+    transform: rotate(-135deg);
+}
+
 /* Estilos para el menú hamburguesa */
 .menu-toggle {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1001;
-    background-color: #A67B5B;
-    border-radius: 50%;
-    padding: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.menu-toggle:hover {
-    background-color: #8B5A2B;
-    transform: scale(1.05);
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 2px 0;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle.active {
-    background-color: #8B5A2B;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    display: none;
 }
 
 /* Overlay para cuando el menú está abierto */
@@ -232,6 +217,12 @@ body.menu-open {
     
     .logo {
         font-size: 1.8rem;
+    }
+    
+    .logo::after {
+        width: 10px;
+        height: 10px;
+        margin-left: 8px;
     }
 }
 

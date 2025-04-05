@@ -28,6 +28,8 @@ const countdownFunction = setInterval(() => {
 // Actualiza los elementos con una pequeña animación
 function updateCountdownElement(id, value) {
     const element = document.getElementById(id);
+    if (!element) return;
+    
     const currentValue = parseInt(element.innerText);
     
     // Solo anima si hay un cambio de valor
@@ -42,61 +44,96 @@ function updateCountdownElement(id, value) {
     }
 }
 
-// Cambia el color del header cuando se hace scroll
-window.addEventListener("scroll", function () {
-    var header = document.querySelector("header");
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
-
-// Manejo del menú hamburguesa
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
+// Manejo del menú con el logo M&C
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const menuOverlay = document.getElementById('menu-overlay');
     const body = document.body;
-    const menuLinks = document.querySelectorAll("#menu li a"); 
-
-    // Abrir/cerrar el menú al hacer clic en el ícono de hamburguesa
-    menuToggle.addEventListener("click", function () {
-        menu.classList.toggle("active");
-        body.classList.toggle("menu-open");
-
-        // Cambiar el ícono a "X" cuando el menú está abierto
-        if (menu.classList.contains("active")) {
-            menuToggle.classList.add("close");
-            menuToggle.innerHTML = '✕'; // Cambia el ícono a "X"
-        } else {
-            menuToggle.classList.remove("close");
-            menuToggle.innerHTML = '&#9776;'; // Vuelve al ícono de hamburguesa
-        }
+    const header = document.querySelector('.site-header');
+    const menuItems = document.querySelectorAll('nav ul li a');
+    
+    if (!menuToggle || !menu || !menuOverlay) return;
+    
+    // Toggle menu
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        body.classList.toggle('menu-open');
     });
-
-    // Cerrar el menú y desplazarse a la sección correspondiente al hacer clic en un enlace
-    menuLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault(); 
-
-            // Cierra el menú
-            menu.classList.remove("active");
-            body.classList.remove("menu-open");
-
-            // Cambia el ícono de vuelta a hamburguesa
-            menuToggle.classList.remove("close");
-            menuToggle.innerHTML = '&#9776;';
-
-            // Obtén el ID de la sección a la que se debe desplazar
-            const targetId = this.getAttribute("href").substring(1); 
-            const targetSection = document.getElementById(targetId);
-
-            // Desplázate suavemente a la sección
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: "smooth" });
+    
+    // Close menu when clicking overlay
+    menuOverlay.addEventListener('click', function() {
+        closeMenu();
+    });
+    
+    // Close menu when clicking a menu item
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                closeMenu();
+                
+                // Scroll suave a la sección
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
+    
+    // Función para cerrar el menú
+    function closeMenu() {
+        // Asegurar que el logo vuelva a su estado original
+        menuToggle.classList.remove('active');
+        
+        // Ocultar el menú y overlay
+        menu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        body.classList.remove('menu-open');
+        
+        // Forzar reflow para asegurar que los cambios visuales se apliquen
+        void menuToggle.offsetWidth;
+    }
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Highlight active section in menu
+    function setActiveMenuItem() {
+        const scrollPosition = window.scrollY;
+        
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${sectionId}`) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', setActiveMenuItem);
+    setActiveMenuItem(); // Set active on page load
     
     // Agrega efecto de partículas en la sección hero
     setupParticles();
@@ -106,9 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Inicializa la barra de progreso
     setupScrollProgress();
-    
-    // Inicializa el indicador de sección activa
-    setupActiveSection();
 });
 
 // Función para manejar partículas en el fondo (efecto elegante)
@@ -177,31 +211,6 @@ function setupScrollProgress() {
             progressBar.style.width = scrolled + "%";
         });
     }
-}
-
-// Resalta la sección activa en el menú
-function setupActiveSection() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav ul li a');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active-link');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active-link');
-            }
-        });
-    });
 }
 
 // Prevenir el desplazamiento cuando el menú está abierto

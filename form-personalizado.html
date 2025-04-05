@@ -6,6 +6,7 @@
     <title>Confirma tu Asistencia - Boda de Miguel y Cristina</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-progress.js" defer></script>
+    <script src="countdown.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .form-container {
@@ -221,13 +222,7 @@
 <body>
     <header class="site-header">
         <div class="header-container">
-            <div class="logo">M&C</div>
-            
-            <div class="menu-toggle" id="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <div class="logo" id="menu-toggle">M&C</div>
             
             <nav>
                 <ul id="menu">
@@ -346,50 +341,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
-            const menuOverlay = document.getElementById('menu-overlay');
-            const body = document.body;
-            const header = document.querySelector('.site-header');
-            const menuItems = document.querySelectorAll('nav ul li a');
-            
-            // Toggle menu
-            menuToggle.addEventListener('click', function() {
-                menuToggle.classList.toggle('active');
-                menu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                body.classList.toggle('menu-open');
-            });
-            
-            // Close menu when clicking overlay
-            menuOverlay.addEventListener('click', function() {
-                closeMenu();
-            });
-            
-            // Close menu when clicking a menu item
-            menuItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    closeMenu();
-                });
-            });
-            
-            // Función para cerrar el menú
-            function closeMenu() {
-                menuToggle.classList.remove('active');
-                menu.classList.remove('active');
-                menuOverlay.classList.remove('active');
-                body.classList.remove('menu-open');
-            }
-            
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
             // Mostrar u ocultar el detalle de restricciones alimentarias
             const dietarySelect = document.getElementById('dietary');
             const dietaryDetails = document.getElementById('dietary-details');
