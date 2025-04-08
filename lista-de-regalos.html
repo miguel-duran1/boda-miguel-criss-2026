@@ -5,198 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Regalos - Boda de Miguel y Cristina</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scroll-progress.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #5A4A42;
-            max-width: 800px;
+        .gifts-page {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #F8EDE3;
-            text-align: center;
+            padding: 40px 20px;
         }
-        header, footer {
+        
+        .gifts-header {
             text-align: center;
-            padding: 20px 0;
-            background: rgba(234, 215, 193, 0.9);
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+            position: relative;
         }
-        h1 {
-            font-size: 2.5em;
-            color: #A67B5B;
+        
+        .gifts-header h1 {
+            font-size: 3rem;
+            color: #8B5A2B;
             margin-bottom: 20px;
+            font-family: 'Georgia', serif;
         }
-        h2 {
-            color: #A67B5B;
-            margin-top: 30px;
-            font-size: 2rem;
-        }
-        .gift-info {
-            background-color: white;
-            border: 1px solid #EAD7C1;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .account-info {
-            font-size: 1.1em;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: rgba(234, 215, 193, 0.5);
-            border-left: 4px solid #A67B5B;
-            text-align: left;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 30px;
-            color: #5A4A42;
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: #A67B5B;
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .back-link:hover {
-            background-color: #8B5E3C;
-            text-decoration: none;
-        }
-        p {
+        
+        .gifts-header p {
             font-size: 1.2rem;
             color: #7D6757;
-            line-height: 1.6;
-        }
-        footer {
-            margin-top: 60px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .couple-image {
-            max-width: 300px;
-            border-radius: 15px;
-            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 30px auto;
             display: block;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            object-fit: cover;
             border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(166, 123, 91, 0.2);
         }
         
-        .gift-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
+        .gifts-message {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
         
-        .gift-option {
-            flex: 1;
-            min-width: 200px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .gifts-message p {
+            font-size: 1.2rem;
+            color: #5A4A42;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
-        .gift-icon {
+        .account-section {
+            background: linear-gradient(135deg, #A67B5B, #8B5A2B);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .account-section h2 {
+            color: white;
             font-size: 2rem;
-            margin-bottom: 10px;
-            color: #A67B5B;
+            margin-bottom: 30px;
         }
         
-        .date-notice {
-            font-style: italic;
-            background-color: rgba(234, 215, 193, 0.7);
-            padding: 10px;
-            border-radius: 5px;
+        .account-details {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
             margin: 20px 0;
-            display: inline-block;
+            backdrop-filter: blur(5px);
         }
         
-        /* Media queries para móviles */
+        .account-details p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .account-details i {
+            font-size: 1.4rem;
+            color: #F8EDE3;
+        }
+        
+        .copy-button {
+            background-color: white;
+            color: #8B5A2B;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .copy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #5A4A42;
+            text-decoration: none;
+            padding: 12px 30px;
+            background-color: #F8EDE3;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(166, 123, 91, 0.1);
+        }
+        
+        .back-link:hover {
+            background-color: #EAD7C1;
+            transform: translateY(-2px);
+        }
+        
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .gifts-header h1 {
+                font-size: 2.5rem;
             }
-            h2 {
-                font-size: 1.8rem;
+            
+            .gifts-message, .account-section {
+                padding: 30px 20px;
             }
-            p {
-                font-size: 1rem;
-            }
-            .gift-options {
-                flex-direction: column;
+            
+            .account-details p {
+                font-size: 1.1rem;
             }
         }
         
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
+            .gifts-header h1 {
+                font-size: 2rem;
             }
-            h2 {
-                font-size: 1.6rem;
-            }
-            p {
-                font-size: 0.9rem;
-            }
-            .account-info {
-                padding: 10px;
-            }
+            
             .couple-image {
-                max-width: 250px;
+                width: 150px;
+                height: 150px;
+            }
+            
+            .gifts-message p {
+                font-size: 1.1rem;
+            }
+            
+            .account-details {
+                padding: 20px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Lista de Regalos</h1>
-        <p>Boda de Miguel y Cristina - 2 de mayo de 2026</p>
-    </header>
+    <div class="gifts-page">
+        <header class="gifts-header">
+            <h1>Lista de Regalos</h1>
+            <p>Boda de Miguel y Cristina - 2 de mayo de 2026</p>
+            <img src="cristina_yo.jpg" alt="Miguel y Cristina" class="couple-image">
+        </header>
+        
+        <main>
+            <section class="gifts-message">
+                <h2>Queridos familiares y amigos,</h2>
+                <p>
+                    Estamos muy ilusionados por compartir con vosotros uno de los días más especiales de nuestras vidas. 
+                    Vuestra presencia en nuestra boda es, sin duda, el mejor regalo que podemos recibir.
+                </p>
+                <p>
+                    Para aquellos que habéis preguntado si podéis hacernos algún detalle, hemos habilitado un número de 
+                    cuenta donde podéis realizar vuestras aportaciones que nos ayudarán a empezar esta nueva etapa juntos.
+                </p>
+            </section>
+            
+            <section class="account-section">
+                <h2>Datos bancarios</h2>
+                <div class="account-details">
+                    <p><i class="fas fa-user"></i> <strong>Titular:</strong> Miguel Durán y Cristina Delgado</p>
+                    <p><i class="fas fa-university"></i> <strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</p>
+                    <p><i class="fas fa-info-circle"></i> <strong>Concepto:</strong> Regalo boda + [Tu nombre]</p>
+                </div>
+                <button class="copy-button" onclick="copyIBAN()">
+                    <i class="fas fa-copy"></i> Copiar IBAN
+                </button>
+                <p style="margin-top: 20px; font-size: 1rem;">
+                    Si prefieres otro método de pago o tienes alguna duda, no dudes en contactarnos directamente.
+                </p>
+            </section>
+            
+            <section class="gifts-message">
+                <h2>¡Muchas gracias!</h2>
+                <p>
+                    Estamos profundamente agradecidos por vuestra generosidad y por formar parte de este momento tan especial.
+                    ¡Esperamos celebrar con todos vosotros!
+                </p>
+                <p>Con todo nuestro cariño,</p>
+                <p style="font-style: italic; color: #A67B5B; font-size: 1.3rem;">Miguel y Cristina</p>
+            </section>
+        </main>
+        
+        <footer style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Volver a la página principal
+            </a>
+        </footer>
+    </div>
     
-    <main>
-        <img src="cristina_yo.jpg" alt="Miguel y Cristina" class="couple-image">
-        
-        <section id="message">
-            <h2>Queridos familiares y amigos,</h2>
-            <p>
-                Estamos muy ilusionados por compartir con vosotros uno de los días más especiales de nuestras vidas. 
-                Vuestra presencia en nuestra boda es, sin duda, el mejor regalo que podemos recibir.
-            </p>
-            <p>
-                Para aquellos que habéis preguntado si podéis hacernos algún detalle, hemos habilitado un número de 
-                cuenta donde podéis realizar vuestras aportaciones que nos ayudarán a empezar esta nueva etapa juntos.
-            </p>
-        </section>
-        
-        <section id="account" class="gift-info">
-            <h2>Datos bancarios</h2>
-            <div class="account-info">
-                <p><strong>Titular:</strong> Miguel Durán y Cristina Delgado</p>
-                <p><strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</p>
-                <p><strong>Concepto:</strong> Regalo boda + [Tu nombre]</p>
-            </div>
-            <p>
-                Si prefieres otro método de pago o tienes alguna duda, no dudes en contactarnos directamente.
-            </p>
-        </section>
-        
-        <section id="thanks">
-            <h2>¡Muchas gracias!</h2>
-            <p>
-                Estamos profundamente agradecidos por vuestra generosidad y por formar parte de este momento tan especial.
-                ¡Esperamos celebrar con todos vosotros!
-            </p>
-            <p>Con todo nuestro cariño,</p>
-            <p><em>Miguel y Cristina</em></p>
-        </section>
-    </main>
-    
-    <footer>
-        <a href="index.html" class="back-link">← Volver a la página principal</a>
-    </footer>
+    <script>
+        function copyIBAN() {
+            const iban = 'ES00 0000 0000 0000 0000 0000';
+            navigator.clipboard.writeText(iban).then(() => {
+                const button = document.querySelector('.copy-button');
+                button.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i> Copiar IBAN';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html> 

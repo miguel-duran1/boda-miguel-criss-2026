@@ -1258,3 +1258,135 @@ form button:hover {
         font-size: 2rem;
     }
 }
+
+/* Estilos para la sección de regalos */
+.gifts-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.gifts-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.gifts-message {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gifts-message p {
+    font-size: 1.2rem;
+    color: #5A4A42;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.gifts-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.gift-option {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    background: linear-gradient(135deg, #fff, #F8EDE3);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(166, 123, 91, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(166, 123, 91, 0.15);
+}
+
+.gift-icon {
+    font-size: 2.5rem;
+    color: #A67B5B;
+    margin-bottom: 20px;
+}
+
+.gift-option h3 {
+    color: #8B5A2B;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.gift-option p {
+    color: #7D6757;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.gift-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #A67B5B, #D8935F);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(166, 123, 91, 0.2);
+}
+
+.gift-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(166, 123, 91, 0.3);
+}
+
+.gifts-note {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.gifts-note p {
+    color: #5A4A42;
+    margin: 5px 0;
+}
+
+.signature {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #A67B5B;
+    margin-top: 10px;
+}
+
+/* Media queries para la sección de regalos */
+@media (max-width: 768px) {
+    .gifts-content {
+        padding: 30px 20px;
+    }
+    
+    .gifts-options {
+        gap: 20px;
+    }
+    
+    .gift-option {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gifts-content {
+        padding: 20px 15px;
+    }
+    
+    .gift-option {
+        min-width: 100%;
+    }
+    
+    .gifts-message p {
+        font-size: 1.1rem;
+    }
+}
