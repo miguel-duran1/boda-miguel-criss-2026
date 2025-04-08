@@ -170,6 +170,26 @@
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo" id="menu-toggle">M&C</div>
+            
+            <nav>
+                <ul id="menu">
+                    <li style="--i:1"><a href="#hero">Inicio</a></li>
+                    <li style="--i:2"><a href="#info">Información</a></li>
+                    <li style="--i:3"><a href="#countdown">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="#rsvp">Asistencia</a></li>
+                    <li style="--i:5"><a href="#gifts">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="#location">Ubicación</a></li>
+                    <li style="--i:7"><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="menu-overlay" id="menu-overlay"></div>
+    
     <div class="gifts-page">
         <header class="gifts-header">
             <h1>Lista de Regalos</h1>
@@ -190,14 +210,14 @@
                 </p>
             </section>
             
-            <section class="account-section">
+            <section class="account-section" style="background: linear-gradient(135deg, #D8B48C, #A67B5B);">
                 <h2>Datos bancarios</h2>
                 <div class="account-details">
                     <p><i class="fas fa-user"></i> <strong>Titular:</strong> Miguel Durán y Cristina Delgado</p>
                     <p><i class="fas fa-university"></i> <strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</p>
                     <p><i class="fas fa-info-circle"></i> <strong>Concepto:</strong> Regalo boda + [Tu nombre]</p>
                 </div>
-                <button class="copy-button" onclick="copyIBAN()">
+                <button class="copy-button">
                     <i class="fas fa-copy"></i> Copiar IBAN
                 </button>
                 <p style="margin-top: 20px; font-size: 1rem;">
