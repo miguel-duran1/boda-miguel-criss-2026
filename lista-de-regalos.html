@@ -250,19 +250,121 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Asegurarnos de que el botón existe
             const copyButton = document.querySelector('.copy-button');
-            copyButton.addEventListener('click', copyIBAN);
+            if (copyButton) {
+                copyButton.addEventListener('click', copyIBAN);
+                console.log('Botón de copiar IBAN inicializado');
+            } else {
+                console.error('No se encontró el botón de copiar IBAN');
+            }
+            
+            // También podemos añadir funcionalidad al menú
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            const overlay = document.getElementById('menu-overlay');
+            
+            if (menuToggle && menu && overlay) {
+                menuToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('menu-open');
+                    menu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                
+                overlay.addEventListener('click', function() {
+                    document.body.classList.remove('menu-open');
+                    menu.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
         });
         
         function copyIBAN() {
             const iban = 'ES00 0000 0000 0000 0000 0000';
-            navigator.clipboard.writeText(iban).then(() => {
-                const button = document.querySelector('.copy-button');
-                button.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
-                setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-copy"></i> Copiar IBAN';
-                }, 2000);
-            });
+            
+            // Usar try-catch para manejar posibles errores
+            try {
+                navigator.clipboard.writeText(iban)
+                    .then(() => {
+                        console.log('IBAN copiado al portapapeles');
+                        const button = document.querySelector('.copy-button');
+                        
+                        // Guardar el texto original
+                        const originalContent = button.innerHTML;
+                        
+                        // Cambiar apariencia del botón como feedback
+                        button.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                        button.style.backgroundColor = '#4CAF50';
+                        button.style.color = 'white';
+                        
+                        // Restaurar el botón después de 2 segundos
+                        setTimeout(() => {
+                            button.innerHTML = originalContent;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                        
+                        // También mostrar una notificación
+                        if ('Notification' in window && Notification.permission === 'granted') {
+                            new Notification('IBAN Copiado', {
+                                body: 'El número de cuenta ha sido copiado al portapapeles'
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Error al copiar: ', err);
+                        alert('No se pudo copiar el IBAN. Por favor, cópialo manualmente: ' + iban);
+                    });
+            } catch (error) {
+                console.error('Error al acceder al portapapeles: ', error);
+                
+                // Fallback para navegadores que no soportan clipboard API
+                fallbackCopyTextToClipboard(iban);
+            }
+        }
+        
+        // Método alternativo para navegadores más antiguos
+        function fallbackCopyTextToClipboard(text) {
+            try {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.top = '0';
+                textArea.style.left = '0';
+                textArea.style.width = '2em';
+                textArea.style.height = '2em';
+                textArea.style.padding = '0';
+                textArea.style.border = 'none';
+                textArea.style.outline = 'none';
+                textArea.style.boxShadow = 'none';
+                textArea.style.background = 'transparent';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    console.log('IBAN copiado usando método alternativo');
+                    const button = document.querySelector('.copy-button');
+                    button.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                    button.style.backgroundColor = '#4CAF50';
+                    button.style.color = 'white';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="fas fa-copy"></i> Copiar IBAN';
+                        button.style.backgroundColor = '';
+                        button.style.color = '';
+                    }, 2000);
+                } else {
+                    console.error('No se pudo copiar usando el método alternativo');
+                    alert('No se pudo copiar. Por favor, selecciona y copia manualmente: ' + text);
+                }
+                
+                document.body.removeChild(textArea);
+            } catch (error) {
+                console.error('Error en el método alternativo de copia: ', error);
+                alert('No se pudo copiar. Por favor, anota el número: ' + text);
+            }
         }
     </script>
 </body>
