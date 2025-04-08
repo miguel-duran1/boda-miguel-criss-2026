@@ -15,20 +15,21 @@
             padding: 40px 20px;
         }
         
-        .gifts-header {
+        .gifts-title-section {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
+            margin-top: 60px; /* Añadir espacio para evitar que se solape con el header fijo */
         }
         
-        .gifts-header h1 {
+        .gifts-title-section h1 {
             font-size: 3rem;
             color: #8B5A2B;
             margin-bottom: 20px;
             font-family: 'Georgia', serif;
         }
         
-        .gifts-header p {
+        .gifts-title-section p {
             font-size: 1.2rem;
             color: #7D6757;
             max-width: 600px;
@@ -138,7 +139,7 @@
         }
         
         @media (max-width: 768px) {
-            .gifts-header h1 {
+            .gifts-title-section h1 {
                 font-size: 2.5rem;
             }
             
@@ -152,7 +153,7 @@
         }
         
         @media (max-width: 480px) {
-            .gifts-header h1 {
+            .gifts-title-section h1 {
                 font-size: 2rem;
             }
             
@@ -195,11 +196,11 @@
     <div class="menu-overlay" id="menu-overlay"></div>
     
     <div class="gifts-page">
-        <header class="gifts-header">
+        <div class="gifts-title-section">
             <h1>Lista de Regalos</h1>
             <p>Boda de Miguel y Cristina - 2 de mayo de 2026</p>
             <img src="cristina_yo.jpg" alt="Miguel y Cristina" class="couple-image">
-        </header>
+        </div>
         
         <main>
             <section class="gifts-message">
@@ -248,6 +249,11 @@
     </div>
     
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.querySelector('.copy-button');
+            copyButton.addEventListener('click', copyIBAN);
+        });
+        
         function copyIBAN() {
             const iban = 'ES00 0000 0000 0000 0000 0000';
             navigator.clipboard.writeText(iban).then(() => {
