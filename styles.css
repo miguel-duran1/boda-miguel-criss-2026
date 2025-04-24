@@ -791,6 +791,7 @@ footer {
     .countdown-number-container {
         width: 65px;
         height: 65px;
+        padding: 30px;
     }
     
     .countdown-number {
