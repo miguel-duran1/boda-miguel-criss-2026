@@ -237,7 +237,7 @@
                     </p>
                     <p>
                         <i class="fas fa-university"></i>
-                        <span><strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</span>
+                        <span><strong>IBAN:</strong> ES11 4000 0115 0000 0001 1111</span>
                     </p>
                     <p>
                         <i class="fas fa-info-circle"></i>
@@ -280,29 +280,10 @@
             } else {
                 console.error('No se encontró el botón de copiar IBAN');
             }
-            
-            // También podemos añadir funcionalidad al menú
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
-            const overlay = document.getElementById('menu-overlay');
-            
-            if (menuToggle && menu && overlay) {
-                menuToggle.addEventListener('click', function() {
-                    document.body.classList.toggle('menu-open');
-                    menu.classList.toggle('active');
-                    overlay.classList.toggle('active');
-                });
-                
-                overlay.addEventListener('click', function() {
-                    document.body.classList.remove('menu-open');
-                    menu.classList.remove('active');
-                    overlay.classList.remove('active');
-                });
-            }
         });
         
         function copyIBAN() {
-            const iban = 'ES00 0000 0000 0000 0000 0000';
+            const iban = 'ES11 4000 0115 0000 0001 1111';
             
             // Usar try-catch para manejar posibles errores
             try {
