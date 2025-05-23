@@ -59,7 +59,23 @@ header {
 }
 
 .site-header.scrolled {
-    background: rgba(234, 215, 193, 0.98);
+    background: linear-gradient(90deg, #A67B5B 60%, #F7CAC9 100%);
+    box-shadow: 0 4px 18px rgba(139,90,43,0.13);
+    border-bottom: 2px solid #D8B48C;
+    transition: background 0.3s, box-shadow 0.3s, border-bottom 0.3s;
+}
+
+.site-header.scrolled .logo {
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(139,90,43,0.10);
+}
+
+.site-header.scrolled nav ul li a {
+    color: #fff;
+}
+
+.site-header.scrolled nav ul li a:hover {
+    background: rgba(255,255,255,0.12);
 }
 
 .header-container {
