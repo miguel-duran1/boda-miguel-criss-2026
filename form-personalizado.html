@@ -601,11 +601,25 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Número de invitados -->
-            <div class="form-group" id="guests-group">
-                <label for="guests">Número de invitados (incluyéndote)</label>
-                <input type="number" id="guests" name="guests" min="1" value="1">
+
+            <!-- ¿Llevas acompañante? -->
+            <div class="form-group" id="companion-group">
+                <label>¿Llevas acompañante?<span class="required">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="companion-yes" name="companion" value="Sí" required>
+                        <label for="companion-yes">Sí</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="companion-no" name="companion" value="No">
+                        <label for="companion-no">No</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Nombre del acompañante -->
+            <div class="form-group" id="companion-name-group" style="display: none;">
+                <label for="companion-name">Si llevas acompañante, indícanos el nombre y apellidos</label>
+                <input type="text" id="companion-name" name="companion-name">
             </div>
             
             <!-- Restricciones alimentarias -->
@@ -671,24 +685,41 @@
                 });
             }
             
+            // Mostrar/ocultar campo de acompañante
+            const companionYes = document.getElementById('companion-yes');
+            const companionNo = document.getElementById('companion-no');
+            const companionNameGroup = document.getElementById('companion-name-group');
+            
+            if (companionYes && companionNo && companionNameGroup) {
+                companionYes.addEventListener('change', function() {
+                    if (this.checked) {
+                        companionNameGroup.style.display = 'block';
+                    }
+                });
+                
+                companionNo.addEventListener('change', function() {
+                    if (this.checked) {
+                        companionNameGroup.style.display = 'none';
+                    }
+                });
+            }
+            
             // Mostrar u ocultar campos relacionados con la asistencia
             const attendingYes = document.getElementById('attending-yes');
             const attendingNo = document.getElementById('attending-no');
-            const guestsGroup = document.getElementById('guests-group');
             const dietaryGroup = document.getElementById('dietary-group');
             
-            if (attendingYes && attendingNo && guestsGroup && dietaryGroup) {
+            if (attendingYes && attendingNo && dietaryGroup) {
                 attendingYes.addEventListener('change', function() {
                     if (this.checked) {
-                        guestsGroup.style.display = 'block';
                         dietaryGroup.style.display = 'block';
                     }
                 });
                 
                 attendingNo.addEventListener('change', function() {
                     if (this.checked) {
-                        guestsGroup.style.display = 'none';
                         dietaryGroup.style.display = 'none';
+                        companionNameGroup.style.display = 'none';
                     }
                 });
             }
