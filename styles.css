@@ -219,10 +219,6 @@ nav ul li a:hover::after {
     background-color: #FFF;
 }
 
-body.menu-open {
-    overflow: hidden;
-}
-
 /* Ajustes responsive para el menú */
 @media (max-width: 768px) {
     nav ul {
