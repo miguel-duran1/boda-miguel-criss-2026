@@ -1535,3 +1535,108 @@ form button:hover {
     margin-left: -6px;
     box-shadow: 0 2px 8px rgba(139,90,43,0.10);
 }
+
+.contact-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.85);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(166,123,91,0.10);
+    padding: 40px 30px 32px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.contact-icon {
+    font-size: 2.8rem;
+    color: #A67B5B;
+    margin-bottom: 8px;
+}
+
+.contact-header h2 {
+    color: #8B5A2B;
+    font-size: 2.2rem;
+    margin: 0 0 6px 0;
+    font-style: italic;
+}
+
+.contact-header .decorative-line {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #A67B5B 60%, #F7CAC9 100%);
+    border-radius: 2px;
+    margin: 8px 0 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-header .decorative-diamond {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 2px solid #A67B5B;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -7px;
+    margin-top: -7px;
+    z-index: 2;
+}
+
+.contact-message {
+    font-size: 1.15rem;
+    color: #7D6757;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.contact-email-box {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid #A67B5B;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #8B5A2B;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(139,90,43,0.08);
+    transition: box-shadow 0.2s;
+}
+
+.contact-email-box a {
+    color: #8B5A2B;
+    text-decoration: none;
+    word-break: break-all;
+    font-family: 'Georgia', serif;
+}
+
+.contact-email-box:hover {
+    box-shadow: 0 4px 16px rgba(139,90,43,0.13);
+}
+
+@media (max-width: 600px) {
+    .contact-container {
+        padding: 28px 8px 24px 8px;
+    }
+    .contact-header h2 {
+        font-size: 1.5rem;
+    }
+    .contact-message {
+        font-size: 1rem;
+    }
+    .contact-email-box {
+        font-size: 1rem;
+        padding: 10px 8px;
+    }
+}
