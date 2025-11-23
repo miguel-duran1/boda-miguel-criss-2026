@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="scroll-progress.js" defer></script>
     <script src="countdown.js" defer></script>
+    <script src="translations.js" defer></script>
     <style>
         .gifts-page {
             max-width: 1000px;
@@ -192,15 +193,20 @@
         <div class="header-container">
             <div class="logo" id="menu-toggle">M&C</div>
             
+            <div class="language-selector">
+                <button data-lang="es" class="active" title="Español">ES</button>
+                <button data-lang="ca" title="Català">CA</button>
+            </div>
+            
             <nav>
                 <ul id="menu">
-                    <li style="--i:1"><a href="index.html#hero">Inicio</a></li>
-                    <li style="--i:2"><a href="index.html#info">Información</a></li>
-                    <li style="--i:3"><a href="index.html#countdown">Cuenta Atrás</a></li>
-                    <li style="--i:4"><a href="index.html#rsvp">Asistencia</a></li>
-                    <li style="--i:5"><a href="index.html#gifts">Lista de Regalos</a></li>
-                    <li style="--i:6"><a href="index.html#location">Ubicación</a></li>
-                    <li style="--i:7"><a href="index.html#contact">Contacto</a></li>
+                    <li style="--i:1"><a href="index.html#hero" data-i18n="nav.inicio">Inicio</a></li>
+                    <li style="--i:2"><a href="index.html#info" data-i18n="nav.informacion">Información</a></li>
+                    <li style="--i:3"><a href="index.html#countdown" data-i18n="nav.cuenta-atras">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="index.html#rsvp" data-i18n="nav.asistencia">Asistencia</a></li>
+                    <li style="--i:5"><a href="index.html#gifts" data-i18n="nav.lista-regalos">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="index.html#location" data-i18n="nav.ubicacion">Ubicación</a></li>
+                    <li style="--i:7"><a href="index.html#contact" data-i18n="nav.contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -210,26 +216,26 @@
     
     <div class="gifts-page">
         <div class="gifts-title-section">
-            <h1>Lista de Regalos</h1>
-            <p>Boda de Miguel y Cristina - 2 de mayo de 2026</p>
+            <h1 data-i18n="gifts-page.title">Lista de Regalos</h1>
+            <p data-i18n="gifts-page.subtitle">Boda de Miguel y Cristina - 2 de mayo de 2026</p>
             <img src="nina y yo tenerife.jpg" alt="Miguel y Cristina" class="couple-image">
         </div>
         
         <main>
             <section class="gifts-message">
-                <h2>Queridos familiares y amigos,</h2>
-                <p>
+                <h2 data-i18n="gifts-page.greeting">Queridos familiares y amigos,</h2>
+                <p data-i18n="gifts-page.message1">
                     Estamos muy ilusionados por compartir con vosotros uno de los días más especiales de nuestras vidas. 
                     Vuestra presencia en nuestra boda es, sin duda, el mejor regalo que podemos recibir.
                 </p>
-                <p>
+                <p data-i18n="gifts-page.message2">
                     Para aquellos que habéis preguntado si podéis hacernos algún detalle, hemos habilitado un número de 
                     cuenta donde podéis realizar vuestras aportaciones que nos ayudarán a empezar esta nueva etapa juntos.
                 </p>
             </section>
             
             <section class="account-section" style="background: linear-gradient(135deg, #D8B48C, #A67B5B);">
-                <h2>Datos bancarios</h2>
+                <h2 data-i18n="gifts-page.bank-data">Datos bancarios</h2>
                 <div class="account-details">
                     <!-- <p>
                         <i class="fas fa-user"></i>
@@ -246,29 +252,29 @@
                     </p> -->
                 </div>
                 <button class="copy-button">
-                    <i class="fas fa-copy"></i> Copiar IBAN
+                    <i class="fas fa-copy"></i> <span data-i18n="gifts-page.copy-iban">Copiar IBAN</span>
                 </button>
-                <p style="margin-top: 20px; font-size: 1.1rem; color: #FFFFFF; background-color: rgba(0, 0, 0, 0.2); padding: 12px 20px; border-radius: 8px; display: inline-block; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <p style="margin-top: 20px; font-size: 1.1rem; color: #FFFFFF; background-color: rgba(0, 0, 0, 0.2); padding: 12px 20px; border-radius: 8px; display: inline-block; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);" data-i18n="gifts-page.payment-note">
                     Si prefieres otro método de pago o tienes alguna duda, no dudes en contactarnos directamente.
                 </p>
             </section>
             
             <section class="gifts-message">
-                <h2>¡Muchas gracias!</h2>
-                <p>
+                <h2 data-i18n="gifts-page.thanks">¡Muchas gracias!</h2>
+                <p data-i18n="gifts-page.thanks-message">
                     Estamos profundamente agradecidos por vuestra generosidad y por formar parte de este momento tan especial.
                     ¡Esperamos celebrar con todos vosotros!
                 </p>
-                <p>Con todo nuestro cariño,</p>
-                <p style="font-style: italic; color: #A67B5B; font-size: 1.3rem;">Miguel y Cristina</p>
+                <p data-i18n="gifts-page.with-love">Con todo nuestro cariño,</p>
+                <p style="font-style: italic; color: #A67B5B; font-size: 1.3rem;" data-i18n="gifts.names">Miguel y Cristina</p>
             </section>
             
         </main>
         <footer style="text-align: center; margin-top: 40px;">
             <a href="index.html" class="back-link">
-                <i class="fas fa-arrow-left"></i> Volver a la página principal
+                <i class="fas fa-arrow-left"></i> <span data-i18n="gifts-page.back">Volver a la página principal</span>
             </a>
-            <p> Copyright © 2026 Miguel & Cristina. Todos Los Derechos Reservados </p>
+            <p data-i18n="footer.copyright"> Copyright © 2026 Miguel & Cristina. Todos Los Derechos Reservados </p>
         </footer>
     </div>
     
@@ -300,7 +306,9 @@
                         const originalContent = button.innerHTML;
                         
                         // Cambiar apariencia del botón como feedback
-                        button.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                        const currentLang = localStorage.getItem('wedding-language') || 'es';
+                        const copiedText = currentLang === 'ca' ? 'Copiat!' : '¡Copiado!';
+                        button.innerHTML = '<i class="fas fa-check"></i> ' + copiedText;
                         button.style.backgroundColor = '#4CAF50';
                         button.style.color = 'white';
                         
@@ -353,12 +361,15 @@
                 if (successful) {
                     console.log('IBAN copiado usando método alternativo');
                     const button = document.querySelector('.copy-button');
-                    button.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                    const currentLang = localStorage.getItem('wedding-language') || 'es';
+                    const copiedText = currentLang === 'ca' ? 'Copiat!' : '¡Copiado!';
+                    button.innerHTML = '<i class="fas fa-check"></i> ' + copiedText;
                     button.style.backgroundColor = '#4CAF50';
                     button.style.color = 'white';
                     
                     setTimeout(() => {
-                        button.innerHTML = '<i class="fas fa-copy"></i> Copiar IBAN';
+                        const copyText = currentLang === 'ca' ? 'Copiar IBAN' : 'Copiar IBAN';
+                        button.innerHTML = '<i class="fas fa-copy"></i> ' + copyText;
                         button.style.backgroundColor = '';
                         button.style.color = '';
                     }, 2000);

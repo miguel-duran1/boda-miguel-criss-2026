@@ -9,6 +9,7 @@
     <script src="particles.js" defer></script>
     <script src="countdown.js" defer></script>
     <script src="reveal.js" defer></script>
+    <script src="translations.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,15 +18,20 @@
         <div class="header-container">
             <div class="logo" id="menu-toggle">M&C</div>
             
+            <div class="language-selector">
+                <button data-lang="es" class="active" title="Español">ES</button>
+                <button data-lang="ca" title="Català">CA</button>
+            </div>
+            
             <nav>
                 <ul id="menu">
-                    <li style="--i:1"><a href="#hero">Inicio</a></li>
-                    <li style="--i:2"><a href="#info">Información</a></li>
-                    <li style="--i:3"><a href="#countdown">Cuenta Atrás</a></li>
-                    <li style="--i:4"><a href="#rsvp">Asistencia</a></li>
-                    <li style="--i:5"><a href="#gifts">Lista de Regalos</a></li>
-                    <li style="--i:6"><a href="#location">Ubicación</a></li>
-                    <li style="--i:7"><a href="#contact">Contacto</a></li>
+                    <li style="--i:1"><a href="#hero" data-i18n="nav.inicio">Inicio</a></li>
+                    <li style="--i:2"><a href="#info" data-i18n="nav.informacion">Información</a></li>
+                    <li style="--i:3"><a href="#countdown" data-i18n="nav.cuenta-atras">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="#rsvp" data-i18n="nav.asistencia">Asistencia</a></li>
+                    <li style="--i:5"><a href="#gifts" data-i18n="nav.lista-regalos">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="#location" data-i18n="nav.ubicacion">Ubicación</a></li>
+                    <li style="--i:7"><a href="#contact" data-i18n="nav.contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,8 +42,8 @@
     
     <section id="hero">
         <div class="hero-content">
-            <h1>Miguel & Cristina</h1>
-            <p>¡Nos casamos! Acompáñanos en este día tan especial.</p>
+            <h1 data-i18n="hero.title">Miguel & Cristina</h1>
+            <p data-i18n="hero.subtitle">¡Nos casamos! Acompáñanos en este día tan especial.</p>
             <img src="IMG_7327.JPG" alt="Foto de la pareja">
         </div>
     </section>
@@ -45,11 +51,11 @@
     <section id="info">
         <div class="info-container">
             <div class="info-header">
-                <h2>Nuestra Boda</h2>
+                <h2 data-i18n="info.title">Nuestra Boda</h2>
                 <div class="decorative-line">
                     <span class="decorative-diamond"></span>
                 </div>
-                <p class="info-date">2 de Mayo de 2026</p>
+                <p class="info-date" data-i18n="info.date">2 de Mayo de 2026</p>
             </div>
             
             <div class="event-cards">
@@ -57,8 +63,8 @@
                     <div class="event-icon">
                         <i class="fas fa-ring"></i>
                     </div>
-                    <h3>Ceremonia</h3>
-                    <p class="event-time">17:00 h</p>
+                    <h3 data-i18n="info.ceremony">Ceremonia</h3>
+                    <p class="event-time">17:00 <span data-i18n="info.time">h</span></p>
                     <p class="event-location">Catedral Sant Esperit de terrassa</p>
                     <p class="event-city">08225 Terrassa, Barcelona</p>
                 </div>
@@ -73,11 +79,11 @@
                     <div class="event-icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
-                    <h3>Celebración</h3>
-                    <p class="event-time">18:30 h</p>
+                    <h3 data-i18n="info.reception">Celebración</h3>
+                    <p class="event-time">18:30 <span data-i18n="info.time">h</span></p>
                     <p class="event-location">Masia la Tartana</p>
-                    <p class="event-note">Cóctel, cena y baile</p>
-                    <p class="event-end">Hasta la madrugada</p>
+                    <p class="event-note" data-i18n="info.cocktail-dinner-dance">Cóctel, cena y baile</p>
+                    <p class="event-end" data-i18n="info.until-dawn">Hasta la madrugada</p>
                 </div>
             </div>
             
@@ -97,7 +103,7 @@
             </div> -->
             
             <div class="more-info">
-                <p>Nos hace mucha ilusión compartir este día tan especial con vosotros</p>
+                <p data-i18n="info.message">Nos hace mucha ilusión compartir este día tan especial con vosotros</p>
             </div>
         </div>
     </section>
@@ -105,18 +111,18 @@
     <section id="countdown">
         <div class="countdown-container-wrapper">
             <div class="countdown-content">
-                <h2>Cuenta Atrás</h2>
+                <h2 data-i18n="countdown.title">Cuenta Atrás</h2>
                 <div class="decorative-line">
                     <span class="decorative-diamond"></span>
                 </div>
-                <p class="countdown-message">Nos vemos en</p>
+                <p class="countdown-message" data-i18n="countdown.message">Nos vemos en</p>
                 
                 <div id="countdown-timer" class="countdown-blocks">
                     <div class="countdown-block">
                         <div class="countdown-number-container">
                             <span id="days" class="countdown-number"></span>
                         </div>
-                        <span class="countdown-label">Días</span>
+                        <span class="countdown-label" data-i18n="countdown.days">Días</span>
                     </div>
                     
                     <div class="countdown-separator">:</div>
@@ -125,7 +131,7 @@
                         <div class="countdown-number-container">
                             <span id="hours" class="countdown-number"></span>
                         </div>
-                        <span class="countdown-label">Horas</span>
+                        <span class="countdown-label" data-i18n="countdown.hours">Horas</span>
                     </div>
                     
                     <div class="countdown-separator">:</div>
@@ -134,7 +140,7 @@
                         <div class="countdown-number-container">
                             <span id="minutes" class="countdown-number"></span>
                         </div>
-                        <span class="countdown-label">Minutos</span>
+                        <span class="countdown-label" data-i18n="countdown.minutes">Minutos</span>
                     </div>
                     
                     <div class="countdown-separator">:</div>
@@ -143,13 +149,13 @@
                         <div class="countdown-number-container">
                             <span id="seconds" class="countdown-number"></span>
                         </div>
-                        <span class="countdown-label">Segundos</span>
+                        <span class="countdown-label" data-i18n="countdown.seconds">Segundos</span>
                     </div>
                 </div>
-                <p class="countdown-final-message">para nuestro gran día</p>
+                <p class="countdown-final-message" data-i18n="countdown.final-message">para nuestro gran día</p>
                 <div id="celebration-message" style="display: none;">
-                    <h3>¡HOY ES EL GRAN DÍA!</h3>
-                    <p>¡Gracias por compartir este momento tan especial con nosotros!</p>
+                    <h3 data-i18n="countdown.today-message">¡HOY ES EL GRAN DÍA!</h3>
+                    <p data-i18n="countdown.thanks-message">¡Gracias por compartir este momento tan especial con nosotros!</p>
                 </div>
             </div>
         </div>
@@ -157,21 +163,21 @@
     
     <section id="rsvp">
         <div class="rsvp-container">
-            <h2>Confirma tu Asistencia</h2>
+            <h2 data-i18n="rsvp.title">Confirma tu Asistencia</h2>
             
             <div class="rsvp-content">
-                <p>Nos encantaría contar con tu presencia en este día tan especial para nosotros.</p> 
+                <p data-i18n="rsvp.message">Nos encantaría contar con tu presencia en este día tan especial para nosotros.</p> 
                 
                 <div class="rsvp-date-highlight">
-                    <p>Por favor, confirma tu asistencia antes del <strong>1 de marzo de 2026</strong></p>
+                    <p><span data-i18n="rsvp.deadline">Por favor, confirma tu asistencia antes del</span> <strong data-i18n="rsvp.deadline-date">1 de marzo de 2026</strong></p>
                     <div class="rsvp-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
                 </div>
                 
                 <div class="rsvp-actions">
-                    <a href="form-personalizado.html" class="rsvp-button">Confirmar asistencia</a>
-                    <p class="rsvp-alternative">Si prefieres confirmar por teléfono, puedes contactarnos directamente</p>
+                    <a href="form-personalizado.html" class="rsvp-button" data-i18n="rsvp.button">Confirmar asistencia</a>
+                    <p class="rsvp-alternative" data-i18n="rsvp.alternative">Si prefieres confirmar por teléfono, puedes contactarnos directamente</p>
                 </div>
             </div>
         </div>
@@ -179,11 +185,11 @@
     
     <section id="gifts">
         <div class="gifts-container">
-            <h2>Lista de Regalos</h2>
+            <h2 data-i18n="gifts.title">Lista de Regalos</h2>
             <div class="gifts-content">
                 <div class="gifts-message">
-                    <p>Queridos amigos y familiares,</p>
-                    <p>Vuestra presencia en nuestra boda es el mejor regalo que podríamos desear. Sin embargo, si queréis contribuir de alguna otra manera, hemos habilitado un número de cuenta para ayudarnos a comenzar esta nueva etapa juntos.</p>
+                    <p data-i18n="gifts.greeting">Queridos amigos y familiares,</p>
+                    <p data-i18n="gifts.message">Vuestra presencia en nuestra boda es el mejor regalo que podríamos desear. Sin embargo, si queréis contribuir de alguna otra manera, hemos habilitado un número de cuenta para ayudarnos a comenzar esta nueva etapa juntos.</p>
                 </div>
                 
                 <div class="gifts-options">
@@ -191,23 +197,23 @@
                         <div class="gift-icon">
                             <i class="fas fa-gift"></i>
                         </div>
-                        <h3>Contribución</h3>
-                        <p>Ayúdanos a hacer realidad nuestros sueños</p>
-                        <a href="lista-de-regalos.html" class="gift-button">Ver detalles</a>
+                        <h3 data-i18n="gifts.contribution">Contribución</h3>
+                        <p data-i18n="gifts.contribution-desc">Ayúdanos a hacer realidad nuestros sueños</p>
+                        <a href="lista-de-regalos.html" class="gift-button" data-i18n="gifts.details">Ver detalles</a>
                     </div>
                     
                     <div class="gift-option">
                         <div class="gift-icon">
                             <i class="fas fa-heart"></i>
                         </div>
-                        <h3>Tu presencia</h3>
-                        <p>Compartir este momento con vosotros es nuestro mayor regalo</p>
+                        <h3 data-i18n="gifts.presence">Tu presencia</h3>
+                        <p data-i18n="gifts.presence-desc">Compartir este momento con vosotros es nuestro mayor regalo</p>
                     </div>
                 </div>
                 
                 <div class="gifts-note">
-                    <p>Con cariño,</p>
-                    <p class="signature">Miguel y Cristina</p>
+                    <p data-i18n="gifts.signature">Con cariño,</p>
+                    <p class="signature" data-i18n="gifts.names">Miguel y Cristina</p>
                 </div>
             </div>
         </div>
@@ -217,10 +223,10 @@
         <div class="location-container">
             <div class="location-header">
                 <span class="location-icon"><i class="fas fa-map-marker-alt"></i></span>
-                <h2>Ubicación</h2>
+                <h2 data-i18n="location.title">Ubicación</h2>
                 <div class="decorative-line"><span class="decorative-diamond"></span></div>
             </div>
-            <p class="location-intro">La boda tendrá lugar en:</p>
+            <p class="location-intro" data-i18n="location.intro">La boda tendrá lugar en:</p>
             <div class="location-details">
                 <p class="location-name"><strong>La Masía La Tartana</strong></p>
                 <p class="location-address">Cami de la Font de la Tartana, 82, 08230 Matadepera, Barcelona</p>
@@ -235,10 +241,10 @@
         <div class="contact-container">
             <div class="contact-header">
                 <span class="contact-icon"><i class="fas fa-envelope"></i></span>
-                <h2>Contacto</h2>
+                <h2 data-i18n="contact.title">Contacto</h2>
                 <div class="decorative-line"><span class="decorative-diamond"></span></div>
             </div>
-            <p class="contact-message">¿Tienes preguntas o quieres enviarnos tus mejores deseos?<br>¡Nos encantará leerte!</p>
+            <p class="contact-message" data-i18n="contact.message">¿Tienes preguntas o quieres enviarnos tus mejores deseos?<br>¡Nos encantará leerte!</p>
             <div class="contact-email-box">
                 <a href="mailto:durannaviamiguel@gmail.com">durannaviamiguel@gmail.com</a>
             </div>
@@ -246,7 +252,7 @@
     </section>
     
     <footer>
-        <p> Copyright © 2026 Miguel & Cristina. Todos Los Derechos Reservados </p>
+        <p data-i18n="footer.copyright"> Copyright © 2026 Miguel & Cristina. Todos Los Derechos Reservados </p>
     </footer>
     
     <script>
