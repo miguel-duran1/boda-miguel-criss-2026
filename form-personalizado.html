@@ -20,20 +20,20 @@
             padding: 30px;
             box-shadow: 0 4px 8px rgba(166, 123, 91, 0.2);
         }
-        
+
         .form-group {
             margin-bottom: 25px;
             text-align: left;
             max-width: 100%;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
             color: #5A4A42;
         }
-        
+
         input[type="text"],
         input[type="email"],
         input[type="tel"],
@@ -51,7 +51,7 @@
             box-sizing: border-box;
             transition: border-color 0.3s ease;
         }
-        
+
         input:focus,
         select:focus,
         textarea:focus {
@@ -59,21 +59,21 @@
             outline: none;
             box-shadow: 0 0 5px rgba(166, 123, 91, 0.3);
         }
-        
+
         .radio-group {
             display: flex;
             flex-direction: row;
             width: 100%;
             margin-top: 15px;
         }
-        
+
         .radio-option {
             display: flex;
             align-items: flex-start;
             width: 50%;
             position: relative;
         }
-        
+
         .radio-option input[type="radio"] {
             position: absolute;
             top: 3px;
@@ -82,7 +82,7 @@
             width: 16px;
             height: 16px;
         }
-        
+
         .radio-option label {
             display: inline-block;
             margin-left: 25px;
@@ -90,22 +90,22 @@
             font-weight: normal;
             text-align: left;
         }
-        
+
         @media (max-width: 480px) {
             .radio-group {
                 justify-content: space-between;
             }
-            
+
             .radio-option {
                 padding-right: 5px;
             }
-            
+
             .radio-option label {
                 font-size: 0.95rem;
                 margin-left: 22px;
             }
         }
-        
+
         .submit-btn {
             background: linear-gradient(to right, #A67B5B, #D8935F);
             color: white;
@@ -119,12 +119,12 @@
             margin-top: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
-        
+
         .page-header {
             background: linear-gradient(to right, #A67B5B, #8B5A2B);
             color: white;
@@ -133,19 +133,19 @@
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
-        
+
         .page-header h1 {
             color: #FFFFFF;
             font-size: 2.2rem;
             margin-bottom: 15px;
         }
-        
+
         .page-header p {
             color: #FFF8DC;
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
-        
+
         .important-date {
             font-weight: bold;
             color: #FFFFFF;
@@ -156,7 +156,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             display: inline-block;
         }
-        
+
         .page-header p:last-of-type {
             background-color: rgba(255, 255, 255, 0.15);
             padding: 10px;
@@ -164,7 +164,7 @@
             margin-top: 15px;
             display: inline-block;
         }
-        
+
         .success-message {
             display: none;
             background-color: rgba(126, 178, 138, 0.2);
@@ -175,12 +175,12 @@
             text-align: center;
             border-left: 4px solid #3c763d;
         }
-        
+
         .required {
             color: #d63031;
             margin-left: 3px;
         }
-        
+
         .back-link {
             display: inline-block;
             margin-top: 30px;
@@ -191,29 +191,29 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-        
+
         .back-link:hover {
             background-color: #D8B48C;
         }
-        
+
         .dietary-options {
             margin-top: 10px;
         }
-        
+
         .form-status {
             margin-top: 20px;
             padding: 15px;
             border-radius: 5px;
             display: none;
         }
-        
+
         .form-status.success {
             display: block;
             background-color: rgba(126, 178, 138, 0.2);
             color: #3c763d;
             border-left: 4px solid #3c763d;
         }
-        
+
         .form-status.error {
             display: block;
             background-color: rgba(217, 83, 79, 0.2);
@@ -320,8 +320,8 @@
         .countdown-block {
             margin: 0;
             text-align: center;
-            width: 90px; /* Aumentar ancho para cada bloque */
-            margin: 0 10px; /* Añadir margen horizontal para separación */
+            width: 90px;
+            margin: 0 10px;
         }
 
         .countdown-number-container {
@@ -355,9 +355,8 @@
             line-height: 1;
             position: relative;
             display: inline-block;
-            min-width: 1.5em; /* Ancho mínimo para evitar saltos */
+            min-width: 1.5em;
             text-align: center;
-            /* Aseguramos que el texto no causa saltos de layout */
             height: 2.6rem;
             display: flex;
             justify-content: center;
@@ -370,9 +369,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             display: block;
-            padding-top: 8px; /* Aumentar espacio superior */
-            padding-bottom: 5px; /* Añadir espacio inferior */
-            width: 100%; /* Ocupar todo el ancho del bloque */
+            padding-top: 8px;
+            padding-bottom: 5px;
+            width: 100%;
             text-align: center;
         }
 
@@ -381,7 +380,7 @@
             font-size: 2.6rem;
             font-weight: 700;
             line-height: 1;
-            margin: 0 2px; /* Ajustar márgenes */
+            margin: 0 2px;
         }
 
         .countdown-number.countdown-update {
@@ -389,14 +388,8 @@
         }
 
         @keyframes countUpdate {
-            0% {
-                transform: translateY(-3px);
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            0% { transform: translateY(-3px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         #celebration-message {
@@ -419,78 +412,26 @@
         }
 
         @keyframes celebrate {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.05);
-            }
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
         }
 
-        /* Media queries para responsividad */
         @media (max-width: 768px) {
-            .countdown-block {
-                width: 70px; /* Aumentado ligeramente */
-                margin: 0 8px; /* Aumentado margen */
-            }
-            
-            .countdown-number-container {
-                width: 65px;
-                height: 65px;
-            }
-            
-            .countdown-number {
-                font-size: 2rem;
-                height: 2rem; /* Altura fija para evitar saltos */
-            }
-            
-            .countdown-separator {
-                font-size: 2rem;
-                margin: 0 1px; /* Reducir separación en pantallas medianas */
-            }
+            .countdown-block { width: 70px; margin: 0 8px; }
+            .countdown-number-container { width: 65px; height: 65px; }
+            .countdown-number { font-size: 2rem; height: 2rem; }
+            .countdown-separator { font-size: 2rem; margin: 0 1px; }
         }
 
         @media (max-width: 480px) {
-            .countdown-block {
-                width: 58px; /* Aumentar ligeramente */
-                margin: 0 5px; /* Aumentar margen en móvil */
-            }
-            
-            .countdown-blocks {
-                gap: 2px;
-                flex-wrap: nowrap;
-                justify-content: center;
-                margin: 0 auto;
-            }
-            
-            .countdown-number-container {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .countdown-number {
-                font-size: 1.6rem;
-                height: 1.6rem; /* Altura fija para evitar saltos */
-            }
-            
-            .countdown-separator {
-                font-size: 1.6rem;
-                margin: 0 0px; /* Sin margen extra en móvil */
-            }
-            
-            .countdown-label {
-                font-size: 0.7rem;
-                letter-spacing: 0; /* Quitar letter-spacing en móviles */
-                white-space: nowrap; /* Evitar que se corte el texto */
-            }
-            
-            .countdown-message, .countdown-final-message {
-                font-size: 1.1rem;
-            }
-            
-            .countdown-content {
-                padding: 25px 10px;
-            }
+            .countdown-block { width: 58px; margin: 0 5px; }
+            .countdown-blocks { gap: 2px; flex-wrap: nowrap; justify-content: center; margin: 0 auto; }
+            .countdown-number-container { width: 50px; height: 50px; }
+            .countdown-number { font-size: 1.6rem; height: 1.6rem; }
+            .countdown-separator { font-size: 1.6rem; margin: 0 0px; }
+            .countdown-label { font-size: 0.7rem; letter-spacing: 0; white-space: nowrap; }
+            .countdown-message, .countdown-final-message { font-size: 1.1rem; }
+            .countdown-content { padding: 25px 10px; }
         }
     </style>
 </head>
@@ -498,12 +439,12 @@
     <header class="site-header">
         <div class="header-container">
             <div class="logo" id="menu-toggle">M&C</div>
-            
+
             <div class="language-selector">
                 <button data-lang="es" class="active" title="Español">ES</button>
                 <button data-lang="ca" title="Català">CA</button>
             </div>
-            
+
             <nav>
                 <ul id="menu">
                     <li style="--i:1"><a href="index.html#hero" data-i18n="nav.inicio">Inicio</a></li>
@@ -517,7 +458,7 @@
             </nav>
         </div>
     </header>
-    
+
     <!-- Overlay para cuando el menú está abierto -->
     <div class="menu-overlay" id="menu-overlay"></div>
 
@@ -529,7 +470,7 @@
                     <span class="decorative-diamond"></span>
                 </div>
                 <p class="countdown-message" data-i18n="countdown.message">Nos vemos en</p>
-                
+
                 <div id="countdown-timer" class="countdown-blocks">
                     <div class="countdown-block">
                         <div class="countdown-number-container">
@@ -537,27 +478,27 @@
                         </div>
                         <span class="countdown-label" data-i18n="countdown.days">Días</span>
                     </div>
-                    
+
                     <div class="countdown-separator">:</div>
-                    
+
                     <div class="countdown-block">
                         <div class="countdown-number-container">
                             <span id="hours" class="countdown-number"></span>
                         </div>
                         <span class="countdown-label" data-i18n="countdown.hours">Horas</span>
                     </div>
-                    
+
                     <div class="countdown-separator">:</div>
-                    
+
                     <div class="countdown-block">
                         <div class="countdown-number-container">
                             <span id="minutes" class="countdown-number"></span>
                         </div>
                         <span class="countdown-label" data-i18n="countdown.minutes">Minutos</span>
                     </div>
-                    
+
                     <div class="countdown-separator">:</div>
-                    
+
                     <div class="countdown-block">
                         <div class="countdown-number-container">
                             <span id="seconds" class="countdown-number"></span>
@@ -581,19 +522,19 @@
                 <label for="email" data-i18n="rsvp-page.email">Email<span class="required">*</span></label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
+
             <!-- Nombre completo -->
             <div class="form-group">
                 <label for="name" data-i18n="rsvp-page.name">Nombre completo<span class="required">*</span></label>
                 <input type="text" id="name" name="name" required>
             </div>
-            
+
             <!-- Teléfono -->
             <div class="form-group">
                 <label for="phone" data-i18n="rsvp-page.phone">Teléfono</label>
                 <input type="tel" id="phone" name="phone">
             </div>
-            
+
             <!-- Asistencia -->
             <div class="form-group">
                 <label data-i18n="rsvp-page.attending">¿Asistirás a nuestra boda?<span class="required">*</span></label>
@@ -603,7 +544,8 @@
                         <label for="attending-yes" data-i18n="rsvp-page.attending-yes">Sí, asistiré</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="attending-no" name="attending" value="no">
+                        <!-- CAMBIO: required también aquí para consistencia -->
+                        <input type="radio" id="attending-no" name="attending" value="no" required>
                         <label for="attending-no" data-i18n="rsvp-page.attending-no">No podré asistir</label>
                     </div>
                 </div>
@@ -618,17 +560,19 @@
                         <label for="companion-yes" data-i18n="form-page.companion-yes">Sí</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="companion-no" name="companion" value="no">
+                        <!-- CAMBIO: required también aquí (el JS lo activará/desactivará) -->
+                        <input type="radio" id="companion-no" name="companion" value="no" required>
                         <label for="companion-no" data-i18n="form-page.companion-no">No</label>
                     </div>
                 </div>
             </div>
+
             <!-- Nombre del acompañante -->
             <div class="form-group" id="companion-name-group" style="display: none;">
                 <label for="companion-name" data-i18n="form-page.companion-name">Si llevas acompañante, indícanos el nombre y apellidos</label>
                 <input type="text" id="companion-name" name="companion-name">
             </div>
-            
+
             <!-- Restricciones alimentarias -->
             <div class="form-group" id="dietary-group">
                 <label for="dietary" data-i18n="rsvp-page.dietary">¿Tienes alguna restricción alimentaria?</label>
@@ -639,43 +583,43 @@
                     <option value="gluten">Sin gluten</option>
                     <option value="other">Otra</option>
                 </select>
-                
+
                 <div id="dietary-details" class="dietary-options" style="display: none;">
                     <label for="dietary-specifics" data-i18n="rsvp-page.dietary-specify">Por favor, especifica tus restricciones alimentarias:</label>
                     <textarea id="dietary-specifics" name="dietary-specifics" rows="3"></textarea>
                 </div>
             </div>
-            
+
             <!-- Mensaje para los novios -->
             <div class="form-group">
                 <label for="message" data-i18n="rsvp-page.message">¿Te gustaría dejar algún mensaje para los novios?</label>
                 <textarea id="message" name="message" rows="4"></textarea>
             </div>
-            
+
             <!-- Configuración de Formspree -->
             <input type="hidden" name="_subject" value="Nueva confirmación de asistencia - Boda Miguel y Cristina">
-            
+
             <!-- Estado del formulario -->
             <div id="form-status" class="form-status"></div>
-            
+
             <!-- Botón de envío -->
             <button type="submit" class="submit-btn" data-i18n="rsvp-page.submit">Confirmar Asistencia</button>
         </form>
-        
+
         <!-- Mensaje de éxito -->
         <div class="success-message" id="success-message">
             <h3 data-i18n="rsvp-page.success-title">¡Gracias por confirmar tu asistencia!</h3>
             <p data-i18n="rsvp-page.success-message1">Hemos recibido tu respuesta correctamente.</p>
             <p data-i18n="rsvp-page.success-message2">Estamos deseando compartir contigo nuestro día especial.</p>
         </div>
-        
+
         <a href="index.html" class="back-link" data-i18n="rsvp-page.back">← Volver a la página principal</a>
     </div>
-    
+
     <footer>
         <p data-i18n="footer.copyright"> Copyright © 2026 Miguel & Cristina. Todos Los Derechos Reservados </p>
     </footer>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Función para actualizar las opciones del select según el idioma
@@ -683,9 +627,9 @@
                 const currentLang = localStorage.getItem('wedding-language') || 'es';
                 const dietarySelect = document.getElementById('dietary');
                 if (!dietarySelect) return;
-                
+
                 const options = dietarySelect.querySelectorAll('option');
-                
+
                 const translations = {
                     es: {
                         'none': 'No, ninguna',
@@ -702,7 +646,7 @@
                         'other': 'Altres'
                     }
                 };
-                
+
                 options.forEach(option => {
                     const value = option.getAttribute('value');
                     if (translations[currentLang] && translations[currentLang][value]) {
@@ -710,92 +654,126 @@
                     }
                 });
             }
-            
+
             // Actualizar opciones cuando cambie el idioma
             document.addEventListener('languageChanged', updateSelectOptions);
-            
+
             // Actualizar opciones al cargar
             updateSelectOptions();
-            
-            // Mostrar u ocultar el detalle de restricciones alimentarias
+
+            // Mostrar u ocultar el detalle de restricciones alimentarias (se mantiene)
             const dietarySelect = document.getElementById('dietary');
             const dietaryDetails = document.getElementById('dietary-details');
-            
             if (dietarySelect && dietaryDetails) {
                 dietarySelect.addEventListener('change', function() {
-                    if (this.value === 'other') {
-                        dietaryDetails.style.display = 'block';
-                    } else {
-                        dietaryDetails.style.display = 'none';
-                    }
+                    dietaryDetails.style.display = (this.value === 'other') ? 'block' : 'none';
                 });
             }
-            
-            // Mostrar/ocultar campo de acompañante
+
+            // ============================================================
+            // CAMBIO CLAVE: control robusto para NO bloquear submit al "NO"
+            // ============================================================
+            const attendingYes = document.getElementById('attending-yes');
+            const attendingNo = document.getElementById('attending-no');
+
+            const dietaryGroup = document.getElementById('dietary-group');
+            const dietarySelectEl = document.getElementById('dietary');
+            const dietaryDetailsEl = document.getElementById('dietary-details');
+            const dietarySpecificsEl = document.getElementById('dietary-specifics');
+
+            const companionGroup = document.getElementById('companion-group');
             const companionYes = document.getElementById('companion-yes');
             const companionNo = document.getElementById('companion-no');
             const companionNameGroup = document.getElementById('companion-name-group');
-            
-            if (companionYes && companionNo && companionNameGroup) {
-                companionYes.addEventListener('change', function() {
-                    if (this.checked) {
-                        companionNameGroup.style.display = 'block';
-                    }
-                });
-                
-                companionNo.addEventListener('change', function() {
-                    if (this.checked) {
-                        companionNameGroup.style.display = 'none';
-                    }
+            const companionNameInput = document.getElementById('companion-name');
+
+            function setGroupEnabled(groupEl, enabled) {
+                if (!groupEl) return;
+                groupEl.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.disabled = !enabled;
                 });
             }
-            
-            // Mostrar u ocultar campos relacionados con la asistencia
-            const attendingYes = document.getElementById('attending-yes');
-            const attendingNo = document.getElementById('attending-no');
-            const dietaryGroup = document.getElementById('dietary-group');
-            const companionGroup = document.getElementById('companion-group');
-            
-            // Inicializar campos según la selección
-            if (attendingYes && attendingYes.checked) {
-                if (dietaryGroup) dietaryGroup.style.display = 'block';
-                if (companionGroup) companionGroup.style.display = 'block';
-            } else if (attendingNo && attendingNo.checked) {
-                if (dietaryGroup) dietaryGroup.style.display = 'none';
-                if (companionGroup) companionGroup.style.display = 'none';
-                if (companionNameGroup) companionNameGroup.style.display = 'none';
+
+            function updateDietaryUI(isAttending) {
+                if (!dietaryGroup) return;
+
+                if (!isAttending) {
+                    if (dietaryDetailsEl) dietaryDetailsEl.style.display = 'none';
+                    if (dietarySelectEl) dietarySelectEl.value = 'none';
+                    if (dietarySpecificsEl) dietarySpecificsEl.value = '';
+                    return;
+                }
+
+                if (dietarySelectEl && dietaryDetailsEl) {
+                    dietaryDetailsEl.style.display = (dietarySelectEl.value === 'other') ? 'block' : 'none';
+                }
             }
-            
-            if (attendingYes && attendingNo && dietaryGroup && companionGroup) {
-                attendingYes.addEventListener('change', function() {
-                    if (this.checked) {
-                        dietaryGroup.style.display = 'block';
-                        companionGroup.style.display = 'block';
-                    }
-                });
-                
-                attendingNo.addEventListener('change', function() {
-                    if (this.checked) {
-                        dietaryGroup.style.display = 'none';
-                        companionGroup.style.display = 'none';
-                        if (companionNameGroup) companionNameGroup.style.display = 'none';
-                    }
-                });
+
+            function updateCompanionUI(isAttending) {
+                if (!companionNameGroup) return;
+
+                const showName = !!(isAttending && companionYes && companionYes.checked);
+                companionNameGroup.style.display = showName ? 'block' : 'none';
+                setGroupEnabled(companionNameGroup, showName);
+
+                if (!showName && companionNameInput) companionNameInput.value = '';
             }
-            
-            // Manejar el menú hamburguesa
+
+            function updateAttendanceUI() {
+                const isAttending = !!(attendingYes && attendingYes.checked);
+
+                if (dietaryGroup) dietaryGroup.style.display = isAttending ? 'block' : 'none';
+                if (companionGroup) companionGroup.style.display = isAttending ? 'block' : 'none';
+
+                // Importantísimo: si NO asiste, desactivar para que no valide ni se envíe
+                setGroupEnabled(dietaryGroup, isAttending);
+                setGroupEnabled(companionGroup, isAttending);
+
+                // Required del acompañante solo cuando asiste
+                if (companionYes) companionYes.required = isAttending;
+                if (companionNo) companionNo.required = isAttending;
+
+                if (!isAttending) {
+                    if (companionYes) companionYes.checked = false;
+                    if (companionNo) companionNo.checked = false;
+
+                    if (companionNameGroup) companionNameGroup.style.display = 'none';
+                    if (companionNameInput) companionNameInput.value = '';
+                    setGroupEnabled(companionNameGroup, false);
+                }
+
+                updateDietaryUI(isAttending);
+                updateCompanionUI(isAttending);
+            }
+
+            if (attendingYes) attendingYes.addEventListener('change', updateAttendanceUI);
+            if (attendingNo) attendingNo.addEventListener('change', updateAttendanceUI);
+
+            if (dietarySelectEl) dietarySelectEl.addEventListener('change', () => {
+                const isAttending = !!(attendingYes && attendingYes.checked);
+                updateDietaryUI(isAttending);
+            });
+
+            if (companionYes) companionYes.addEventListener('change', () => updateCompanionUI(true));
+            if (companionNo) companionNo.addEventListener('change', () => updateCompanionUI(true));
+
+            // Inicializa al cargar
+            updateAttendanceUI();
+
+            // ============================================================
+            // Menú hamburguesa (se mantiene igual)
+            // ============================================================
             const menuToggle = document.getElementById("menu-toggle");
             const menu = document.getElementById("menu");
             const overlay = document.getElementById("menu-overlay");
-            
+
             if (menuToggle && menu && overlay) {
-                // Asegurarse de que el menú esté oculto inicialmente
                 menu.classList.add('hidden');
-                
+
                 menuToggle.addEventListener("click", function() {
                     menuToggle.classList.toggle("active");
                     menu.classList.toggle("active");
-                    
+
                     if (menu.classList.contains('active')) {
                         menu.classList.remove('hidden');
                         overlay.classList.add('active');
@@ -808,28 +786,26 @@
                         overlay.classList.remove('active');
                     }
                 });
-                
-                // Cerrar el menú al hacer click en el overlay
+
                 overlay.addEventListener('click', function() {
                     menuToggle.classList.remove('active');
                     menu.classList.remove('active');
                     overlay.classList.remove('active');
-                    
+
                     setTimeout(() => {
                         if (!menu.classList.contains('active')) {
                             menu.classList.add('hidden');
                         }
                     }, 500);
                 });
-                
-                // Cerrar el menú al hacer click en un enlace
+
                 const menuLinks = document.querySelectorAll('nav ul li a');
                 menuLinks.forEach(link => {
                     link.addEventListener('click', function() {
                         menuToggle.classList.remove('active');
                         menu.classList.remove('active');
                         overlay.classList.remove('active');
-                        
+
                         setTimeout(() => {
                             if (!menu.classList.contains('active')) {
                                 menu.classList.add('hidden');
@@ -838,53 +814,54 @@
                     });
                 });
             }
-            
-            // Formulario de asistencia
+
+            // ============================================================
+            // Formulario (se mantiene, solo funcionará ahora también con "NO")
+            // ============================================================
             const form = document.getElementById('rsvp-form');
             const successMessage = document.getElementById('success-message');
-            
+
             if (form && successMessage) {
                 form.addEventListener('submit', function(event) {
                     event.preventDefault();
-                    
-                    // Validación básica
+
+                    // Validación básica (manteniendo tu lógica)
                     const fullName = document.getElementById('name').value;
                     const email = document.getElementById('email').value;
                     const willAttend = document.querySelector('input[name="attending"]:checked');
-                    
+
                     if (!fullName || !email || !willAttend) {
                         const currentLang = localStorage.getItem('wedding-language') || 'es';
-                        const errorText = currentLang === 'ca' 
+                        const errorText = currentLang === 'ca'
                             ? 'Si us plau, completa tots els camps requerits.'
                             : 'Por favor, completa todos los campos requeridos.';
                         alert(errorText);
                         return;
                     }
-                    
+
                     // Ocultar formulario y mostrar mensaje de éxito
                     form.style.display = 'none';
                     successMessage.style.display = 'block';
-                    
-                    // Enviar el formulario a Formspree asíncronamente
+
                     const formData = new FormData(form);
-                    
+
                     // Actualizar valores según el idioma antes de enviar
                     const currentLang = localStorage.getItem('wedding-language') || 'es';
-                    
+
                     const attendingValue = formData.get('attending');
                     if (attendingValue === 'yes') {
                         formData.set('attending', currentLang === 'ca' ? 'Sí, assistiré' : 'Sí, asistiré');
                     } else if (attendingValue === 'no') {
                         formData.set('attending', currentLang === 'ca' ? 'No podré assistir' : 'No podré asistir');
                     }
-                    
+
                     const companionValue = formData.get('companion');
                     if (companionValue === 'yes') {
                         formData.set('companion', currentLang === 'ca' ? 'Sí' : 'Sí');
                     } else if (companionValue === 'no') {
                         formData.set('companion', currentLang === 'ca' ? 'No' : 'No');
                     }
-                    
+
                     const dietaryValue = formData.get('dietary');
                     const dietaryTranslations = {
                         es: { 'none': 'No, ninguna', 'vegetarian': 'Vegetariano', 'vegan': 'Vegano', 'gluten': 'Sin gluten', 'other': 'Otra' },
@@ -893,26 +870,21 @@
                     if (dietaryValue && dietaryTranslations[currentLang] && dietaryTranslations[currentLang][dietaryValue]) {
                         formData.set('dietary', dietaryTranslations[currentLang][dietaryValue]);
                     }
-                    
+
                     fetch(form.action, {
                         method: form.method,
                         body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     }).then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error al enviar el formulario');
-                        }
-                        // Scroll al mensaje de éxito para que sea visible
+                        if (!response.ok) throw new Error('Error al enviar el formulario');
                         successMessage.scrollIntoView({behavior: 'smooth'});
                     }).catch(error => {
                         console.error('Error:', error);
-                        // Seguir mostrando el mensaje de éxito aunque haya un error en el envío
+                        // Mantener mensaje de éxito aunque falle el envío (tu comportamiento original)
                     });
                 });
             }
         });
     </script>
 </body>
-</html> 
+</html>
