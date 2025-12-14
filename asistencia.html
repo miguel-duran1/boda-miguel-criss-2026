@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="scroll-progress.js" defer></script>
+    <script src="menu.js" defer></script>
     <script src="translations.js" defer></script>
     <style>
         .form-container {
@@ -276,61 +277,8 @@
     </footer>
     
     <script>
-        // Manejar el menú hamburguesa
+        // Funcionalidad específica de la página de asistencia
         document.addEventListener("DOMContentLoaded", function() {
-            const menuToggle = document.getElementById("menu-toggle");
-            const menu = document.getElementById("menu");
-            const overlay = document.getElementById("menu-overlay");
-            
-            // Asegurarse de que el menú esté oculto inicialmente
-            menu.classList.add('hidden');
-            
-            menuToggle.addEventListener("click", function() {
-                menuToggle.classList.toggle("active");
-                menu.classList.toggle("active");
-                
-                if (menu.classList.contains('active')) {
-                    menu.classList.remove('hidden');
-                    overlay.classList.add('active');
-                } else {
-                    setTimeout(() => {
-                        if (!menu.classList.contains('active')) {
-                            menu.classList.add('hidden');
-                        }
-                    }, 500);
-                    overlay.classList.remove('active');
-                }
-            });
-            
-            // Cerrar el menú al hacer click en el overlay
-            overlay.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                menu.classList.remove('active');
-                overlay.classList.remove('active');
-                
-                setTimeout(() => {
-                    if (!menu.classList.contains('active')) {
-                        menu.classList.add('hidden');
-                    }
-                }, 500);
-            });
-            
-            // Cerrar el menú al hacer click en un enlace
-            const menuLinks = document.querySelectorAll('nav ul li a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    menuToggle.classList.remove('active');
-                    menu.classList.remove('active');
-                    overlay.classList.remove('active');
-                    
-                    setTimeout(() => {
-                        if (!menu.classList.contains('active')) {
-                            menu.classList.add('hidden');
-                        }
-                    }, 500);
-                });
-            });
-            
             // Función para actualizar las opciones del select según el idioma
             function updateSelectOptions() {
                 const currentLang = localStorage.getItem('wedding-language') || 'es';

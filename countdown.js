@@ -44,65 +44,8 @@ function updateCountdownElement(id, value) {
     }
 }
 
-// Manejo del menú con el logo M&C
+// Header scroll effect
 document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    const menuOverlay = document.getElementById('menu-overlay');
-    const body = document.body;
-    const header = document.querySelector('.site-header');
-    const menuItems = document.querySelectorAll('nav ul li a');
-    
-    if (!menuToggle || !menu || !menuOverlay) return;
-    
-    // Toggle menu
-    menuToggle.addEventListener('click', function() {
-        menuToggle.classList.toggle('active');
-        menu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-        body.classList.toggle('menu-open');
-    });
-    
-    // Close menu when clicking overlay
-    menuOverlay.addEventListener('click', function() {
-        closeMenu();
-    });
-    
-    // Close menu when clicking a menu item
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                closeMenu();
-                
-                // Scroll suave a la sección
-                const targetId = href.substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({ 
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-    
-    // Función para cerrar el menú
-    function closeMenu() {
-        // Asegurar que el logo vuelva a su estado original
-        menuToggle.classList.remove('active');
-        
-        // Ocultar el menú y overlay
-        menu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        body.classList.remove('menu-open');
-        
-        // Forzar reflow para asegurar que los cambios visuales se apliquen
-        void menuToggle.offsetWidth;
-    }
-    
     // Header scroll effect
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.site-header');
@@ -114,29 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-    
-    // Highlight active section in menu
-    function setActiveMenuItem() {
-        const scrollPosition = window.scrollY;
-        
-        document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                menuItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href') === `#${sectionId}`) {
-                        item.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', setActiveMenuItem);
-    setActiveMenuItem(); // Set active on page load
     
     // Agrega efecto de partículas en la sección hero
     setupParticles();
@@ -216,12 +136,6 @@ function setupScrollProgress() {
     }
 }
 
-// Prevenir el desplazamiento cuando el menú está abierto
-document.addEventListener("touchmove", function (e) {
-    if (document.body.classList.contains("menu-open")) {
-        e.preventDefault();
-    }
-}, { passive: false });
 
 // Efecto de revelación para las secciones
 document.addEventListener("DOMContentLoaded", function () {

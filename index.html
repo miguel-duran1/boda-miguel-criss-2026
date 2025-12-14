@@ -6,6 +6,7 @@
     <title>Boda de Miguel y Cristina</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-progress.js" defer></script>
+    <script src="menu.js" defer></script>
     <script src="particles.js" defer></script>
     <script src="countdown.js" defer></script>
     <script src="reveal.js" defer></script>
@@ -309,60 +310,6 @@
         // Iniciar la cuenta atrás inmediatamente y actualizar cada segundo
         updateCountdown();
         const countdownTimer = setInterval(updateCountdown, 1000);
-        
-        // Toggle para el menú hamburguesa
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav ul');
-        const overlay = document.querySelector('.menu-overlay');
-        
-        // Asegurarse de que el menú esté oculto inicialmente
-        nav.classList.add('hidden');
-        
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            nav.classList.toggle('active');
-            
-            if (nav.classList.contains('active')) {
-                nav.classList.remove('hidden');
-                overlay.classList.add('active');
-            } else {
-                setTimeout(() => {
-                    if (!nav.classList.contains('active')) {
-                        nav.classList.add('hidden');
-                    }
-                }, 500); // Mismo tiempo que la duración de la transición en CSS
-                overlay.classList.remove('active');
-            }
-        });
-        
-        // Cerrar el menú al hacer click en el overlay
-        overlay.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            
-            setTimeout(() => {
-                if (!nav.classList.contains('active')) {
-                    nav.classList.add('hidden');
-                }
-            }, 500);
-        });
-        
-        // Cerrar el menú al hacer click en un enlace
-        const menuLinks = document.querySelectorAll('nav ul li a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('active');
-                overlay.classList.remove('active');
-                
-                setTimeout(() => {
-                    if (!nav.classList.contains('active')) {
-                        nav.classList.add('hidden');
-                    }
-                }, 500);
-            });
-        });
         
         // Destacar la sección activa en el menú basado en el scroll
         window.addEventListener('scroll', function() {
