@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Información sobre los taxis - Boda de Miguel y Cristina</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scroll-progress.js" defer></script>
+    <script src="menu.js" defer></script>
+    <script src="particles.js" defer></script>
+    <script src="translations.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo" id="menu-toggle">M&C</div>
+            
+            <div class="language-selector">
+                <button data-lang="es" class="active" title="Español">ES</button>
+                <button data-lang="ca" title="Català">CA</button>
+            </div>
+            
+            <nav>
+                <ul id="menu">
+                    <li style="--i:1"><a href="index.html#hero" data-i18n="nav.inicio">Inicio</a></li>
+                    <li style="--i:2"><a href="index.html#info" data-i18n="nav.informacion">Información</a></li>
+                    <li style="--i:3"><a href="index.html#countdown" data-i18n="nav.cuenta-atras">Cuenta Atrás</a></li>
+                    <li style="--i:4"><a href="index.html#rsvp" data-i18n="nav.asistencia">Asistencia</a></li>
+                    <li style="--i:5"><a href="index.html#gifts" data-i18n="nav.lista-regalos">Lista de Regalos</a></li>
+                    <li style="--i:6"><a href="index.html#location" data-i18n="nav.ubicacion">Ubicación</a></li>
+                    <li style="--i:7"><a href="index.html#contact" data-i18n="nav.contacto">Contacto</a></li>
+                    <li style="--i:8"><a href="taxis.html">Taxis</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Overlay para cuando el menú está abierto -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <main>
+        <section id="taxis-info">
+            <div class="info-container">
+                <div class="info-header">
+                    <h2>Información sobre los taxis</h2>
+                    <div class="decorative-line">
+                        <span class="decorative-diamond"></span>
+                    </div>
+                </div>
+
+                <p>
+                    Hola de nuevo. Queríamos informaros de que, después de la ceremonia en la catedral, habrá taxis disponibles para ir hasta la masía. Además, al finalizar la boda, también habrá taxis de vuelta para que el desplazamiento sea más cómodo para todos.
+                </p>
+                <p>
+                    Más adelante os confirmaremos la hora exacta y el lugar de salida, pero queríamos avisaros con antelación para que lo tengáis en cuenta.
+                </p>
+
+                <div class="event-cards">
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <h3>Ida</h3>
+                        <p class="event-time">Por confirmar</p>
+                        <p class="event-location">Salida desde la catedral hacia la masía</p>
+                    </div>
+
+                    <div class="event-divider">
+                        <div class="vertical-line"></div>
+                        <div class="divider-circle"></div>
+                        <div class="vertical-line"></div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <h3>Vuelta</h3>
+                        <p class="event-time">Por confirmar</p>
+                        <p class="event-location">Salida desde la masía al finalizar la celebración</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <a href="index.html" class="rsvp-button">Volver al inicio</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p> Copyright © 2026 Miguel & Cristina. Todos los derechos reservados. </p>
+    </footer>
+</body>
+</html>
+
