@@ -750,6 +750,24 @@ footer {
     font-size: 1rem;
 }
 
+.footer-landing-link {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+}
+
+.footer-landing-link a {
+    color: #8B5A2B;
+    font-style: italic;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 90, 43, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-landing-link a:hover {
+    color: #6B4423;
+    border-bottom-color: rgba(107, 68, 35, 0.55);
+}
+
 /* Consistencia en secciones específicas */
 #gifts, #rsvp, #contact {
     background-color: rgba(234, 215, 193, 0.3);
@@ -1927,5 +1945,602 @@ form button:hover {
         transform: translate(calc(var(--vx) * 1.1), calc(var(--vy) * 1.1)) scale(0.2) rotate(calc(var(--initial-rotation, 0deg) + 450deg));
         opacity: 0;
         filter: blur(2px) brightness(0.6) saturate(0.7);
+    }
+}
+
+/* ========== Landing invitados: ya-falta-poco.html ========== */
+body.yfp-landing {
+    padding-top: 0;
+    background-color: #F8EDE3;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.yfp-skip {
+    position: absolute;
+    left: -9999px;
+    z-index: 10000;
+    padding: 0.5rem 1rem;
+    background: #8B5A2B;
+    color: #fff;
+    text-decoration: none;
+    font-family: Georgia, serif;
+}
+
+.yfp-skip:focus {
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.yfp-header .header-container {
+    max-width: 720px;
+}
+
+.yfp-brand {
+    font-family: Georgia, serif;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: bold;
+    font-style: italic;
+    color: #8B5A2B;
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.yfp-brand:hover {
+    transform: scale(1.03);
+    color: #6B4423;
+}
+
+.yfp-header-link {
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #8B5A2B;
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(139, 90, 43, 0.35);
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.yfp-header-link:hover {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 10px rgba(139, 90, 43, 0.12);
+}
+
+.site-header.scrolled .yfp-brand {
+    color: #fff;
+}
+
+.site-header.scrolled .yfp-header-link {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.site-header.scrolled .yfp-header-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.yfp-hero {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: clamp(5.5rem, 14vw, 7.5rem) 1.25rem clamp(3.5rem, 10vw, 5rem);
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at top, rgba(166, 123, 91, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom, rgba(139, 90, 43, 0.22) 0%, transparent 50%),
+        linear-gradient(to bottom, #1a0f1a 0%, #2d1b2e 22%, #3d2b3e 45%, #4a2c3a 68%, #2a1a1a 100%);
+}
+
+.yfp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 18% 28%, rgba(248, 237, 227, 0.95), transparent),
+        radial-gradient(2px 2px at 72% 22%, rgba(255, 250, 240, 0.9), transparent),
+        radial-gradient(1.5px 1.5px at 45% 55%, rgba(234, 215, 193, 0.75), transparent),
+        radial-gradient(1px 1px at 12% 70%, rgba(247, 202, 201, 0.65), transparent),
+        radial-gradient(1px 1px at 88% 62%, rgba(216, 180, 140, 0.7), transparent),
+        radial-gradient(1px 1px at 55% 18%, rgba(248, 237, 227, 0.6), transparent);
+    background-size: 100% 100%;
+    animation: twinkle 18s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.yfp-hero::after {
+    content: '';
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(248, 237, 227, 0.28) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+    z-index: 0;
+    animation: moonGlow 10s ease-in-out infinite;
+}
+
+.yfp-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 34rem;
+    margin: 0 auto;
+}
+
+.yfp-title {
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 7.5vw, 3rem);
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    color: #F8EDE3;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.yfp-hero-line {
+    width: 5rem;
+    height: 2px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(90deg, transparent, #D8B48C, transparent);
+    position: relative;
+}
+
+.yfp-hero-diamond {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #D8B48C;
+    transform: rotate(45deg);
+    left: 50%;
+    top: 50%;
+    margin: -4px 0 0 -4px;
+    box-shadow: 0 0 12px rgba(248, 237, 227, 0.4);
+}
+
+.yfp-subtitle {
+    font-family: Georgia, serif;
+    font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+    font-style: italic;
+    line-height: 1.65;
+    margin: 0;
+    color: rgba(248, 237, 227, 0.95);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.yfp-section {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: clamp(2.75rem, 9vw, 4.5rem) 1.35rem;
+    box-sizing: border-box;
+}
+
+.yfp-emotion {
+    text-align: center;
+}
+
+.yfp-prose p {
+    font-family: Georgia, serif;
+    font-size: clamp(1.05rem, 3.2vw, 1.2rem);
+    line-height: 1.75;
+    color: #5A4A42;
+    margin: 0 0 1.35rem;
+    max-width: none;
+}
+
+.yfp-prose p:last-child {
+    margin-bottom: 0;
+}
+
+.yfp-media-block {
+    max-width: 42rem;
+    padding-top: 0;
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+}
+
+.yfp-media-placeholder {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 237, 227, 0.85) 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(139, 90, 43, 0.1);
+    border: 1px solid rgba(216, 180, 140, 0.45);
+    min-height: clamp(200px, 48vw, 320px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 1.25rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.yfp-media-placeholder-icon {
+    font-size: 2rem;
+    color: #A67B5B;
+    opacity: 0.85;
+    line-height: 1;
+}
+
+.yfp-media-placeholder-text {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #8B5A2B;
+    margin: 0;
+    max-width: none;
+}
+
+.yfp-media-placeholder-hint {
+    font-size: 0.88rem;
+    color: #7D6757;
+    margin: 0;
+    max-width: 22rem;
+    line-height: 1.5;
+}
+
+.yfp-media-figure {
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 36px rgba(139, 90, 43, 0.12);
+}
+
+.yfp-media-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.yfp-media-video {
+    display: block;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 36px rgba(139, 90, 43, 0.12);
+    background: #2a1a1a;
+}
+
+.yfp-media-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 36px rgba(139, 90, 43, 0.12);
+}
+
+.yfp-media-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.yfp-countdown-section {
+    text-align: center;
+    padding-top: clamp(2rem, 6vw, 3rem);
+    padding-bottom: clamp(2.5rem, 8vw, 4rem);
+    background: linear-gradient(180deg, rgba(234, 215, 193, 0.35) 0%, rgba(248, 237, 227, 0.5) 100%);
+    border-radius: 20px;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.yfp-countdown-title {
+    font-family: Georgia, serif;
+    font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+    font-style: italic;
+    font-weight: normal;
+    color: #8B5A2B;
+    margin: 0 0 0.5rem;
+}
+
+.yfp-countdown-intro {
+    font-size: 0.95rem;
+    color: #7D6757;
+    margin: 0 0 1.5rem;
+    max-width: none;
+}
+
+.yfp-countdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.35rem 0.5rem;
+}
+
+.yfp-count-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.25rem;
+}
+
+.yfp-count-num {
+    font-family: Georgia, serif;
+    font-size: clamp(1.35rem, 4.5vw, 1.65rem);
+    font-weight: bold;
+    color: #5A4A42;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.yfp-count-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #A67B5B;
+    margin-top: 0.35rem;
+}
+
+.yfp-count-sep {
+    color: rgba(139, 90, 43, 0.35);
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 0 0.1rem 0.5rem;
+    user-select: none;
+}
+
+.yfp-countdown-past {
+    padding: 0.5rem 0.5rem 0;
+}
+
+.yfp-countdown-past-text {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.15rem);
+    line-height: 1.65;
+    color: #5A4A42;
+    margin: 0;
+    max-width: none;
+}
+
+/* Regalo (landing ya-falta-poco) */
+.yfp-gift {
+    text-align: center;
+    padding-top: clamp(2.5rem, 8vw, 4rem);
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+}
+
+.yfp-gift-title {
+    font-family: Georgia, serif;
+    font-size: clamp(1.35rem, 4.2vw, 1.65rem);
+    font-weight: normal;
+    font-style: italic;
+    color: #8B5A2B;
+    margin: 0 0 0.75rem;
+}
+
+.yfp-gift-title-line {
+    width: 120px;
+    margin: 0 auto 1.75rem;
+}
+
+.yfp-gift-lead {
+    font-family: Georgia, serif;
+    font-size: clamp(1.02rem, 3.1vw, 1.18rem);
+    line-height: 1.75;
+    color: #5A4A42;
+    margin: 0 auto 1rem;
+    max-width: 28rem;
+}
+
+.yfp-gift-lead--second {
+    margin-bottom: 2rem;
+    color: #6B5B50;
+}
+
+.yfp-gift-card {
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 237, 227, 0.92) 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(216, 180, 140, 0.4);
+    box-shadow: 0 10px 40px rgba(139, 90, 43, 0.08);
+    padding: clamp(1.75rem, 5vw, 2.5rem) clamp(1.25rem, 4vw, 2rem);
+    max-width: 26rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.yfp-gift-card-intro {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #7D6757;
+    margin: 0 0 1.5rem;
+    max-width: none;
+    font-style: italic;
+}
+
+.yfp-gift-details {
+    text-align: left;
+    margin-bottom: 1.25rem;
+}
+
+.yfp-gift-row {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(166, 123, 91, 0.2);
+}
+
+.yfp-gift-row:first-child {
+    padding-top: 0;
+}
+
+.yfp-gift-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.yfp-gift-label {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #A67B5B;
+    margin-bottom: 0.35rem;
+}
+
+.yfp-gift-value {
+    font-family: Georgia, serif;
+    font-size: clamp(0.95rem, 2.8vw, 1.05rem);
+    color: #5A4A42;
+    margin: 0;
+    line-height: 1.5;
+    word-break: break-all;
+    max-width: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.yfp-gift-copy {
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #8B5A2B;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(139, 90, 43, 0.35);
+    padding: 0.65rem 1.35rem;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-top: 0.25rem;
+    transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.yfp-gift-copy:hover {
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
+    color: #6B4423;
+}
+
+.yfp-gift-copy:focus-visible {
+    outline: 2px solid #8B5A2B;
+    outline-offset: 3px;
+}
+
+.yfp-gift-copy-feedback {
+    min-height: 1.25em;
+    font-size: 0.85rem;
+    color: #5A7D5A;
+    margin: 0.65rem 0 0;
+    max-width: none;
+}
+
+.yfp-gift-note {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #7D6757;
+    margin: 1.5rem 0 0;
+    max-width: none;
+}
+
+.yfp-gift-more {
+    margin: 1.25rem 0 0;
+    margin-bottom: 0;
+}
+
+.yfp-gift-more-link {
+    font-family: Georgia, serif;
+    font-size: 0.92rem;
+    font-style: italic;
+    color: #8B5A2B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 90, 43, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.yfp-gift-more-link:hover {
+    color: #6B4423;
+    border-bottom-color: rgba(107, 68, 35, 0.5);
+}
+
+.yfp-closing {
+    text-align: center;
+    padding-bottom: clamp(3rem, 10vw, 5rem);
+}
+
+.yfp-closing-line {
+    font-family: Georgia, serif;
+    font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+    font-style: italic;
+    color: #8B5A2B;
+    margin: 0 0 1rem;
+    max-width: none;
+}
+
+.yfp-closing-decor {
+    width: 100px;
+    margin-bottom: 1.25rem;
+}
+
+.yfp-signature {
+    font-family: Georgia, serif;
+    font-size: clamp(1.05rem, 3.2vw, 1.2rem);
+    line-height: 1.7;
+    color: #5A4A42;
+    margin: 0 0 2rem;
+    max-width: none;
+}
+
+.yfp-cta-wrap {
+    margin-top: 0.5rem;
+}
+
+.yfp-cta.rsvp-button {
+    margin-top: 0;
+}
+
+.yfp-footer {
+    margin-top: 0;
+    padding: 1.5rem 1rem 2rem;
+    background: rgba(234, 215, 193, 0.75);
+    color: #5A4A42;
+    font-size: 0.9rem;
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.yfp-footer p {
+    margin: 0;
+    max-width: none;
+}
+
+@media (min-width: 600px) {
+    .yfp-section {
+        max-width: 38rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .yfp-countdown-section {
+        max-width: 38rem;
+    }
+
+    .yfp-countdown {
+        gap: 0.5rem 0.75rem;
     }
 }
