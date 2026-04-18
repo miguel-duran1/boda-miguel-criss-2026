@@ -9,6 +9,19 @@ const translations = {
         'nav.lista-regalos': 'Lista de Regalos',
         'nav.ubicacion': 'Ubicación',
         'nav.contacto': 'Contacto',
+        'nav.taxis': 'Taxis',
+        
+        // Página Taxis
+        'taxis.meta-title': 'Información sobre los taxis - Boda de Miguel y Cristina',
+        'taxis.title': 'Información sobre los taxis',
+        'taxis.p1': 'Hola de nuevo. Queríamos informaros de que, después de la ceremonia en la catedral, habrá taxis disponibles para ir hasta la masía. Además, al finalizar la boda, también habrá taxis de vuelta para que el desplazamiento sea más cómodo para todos.',
+        'taxis.p2': 'Más adelante os confirmaremos la hora exacta y el lugar de salida, pero queríamos avisaros con antelación para que lo tengáis en cuenta.',
+        'taxis.outbound': 'Ida',
+        'taxis.return': 'Vuelta',
+        'taxis.tbc': 'Por confirmar',
+        'taxis.outbound-detail': 'Salida desde la catedral hacia la masía',
+        'taxis.return-detail': 'Salida desde la masía al finalizar la celebración',
+        'taxis.back': 'Volver al inicio',
         
         // Hero
         'hero.title': 'Miguel & Cristina',
@@ -125,6 +138,19 @@ const translations = {
         'nav.lista-regalos': 'Llista de Regals',
         'nav.ubicacion': 'Ubicació',
         'nav.contacto': 'Contacte',
+        'nav.taxis': 'Taxis',
+        
+        // Página Taxis
+        'taxis.meta-title': 'Informació sobre els taxis - Casament de Miguel i Cristina',
+        'taxis.title': 'Informació sobre els taxis',
+        'taxis.p1': 'Hola de nou. Volíem informar-vos que, després de la cerimònia a la catedral, hi haurà taxis disponibles per anar fins a la masia. A més, en acabar el casament, també hi haurà taxis de tornada perquè el desplaçament sigui més còmode per a tothom.',
+        'taxis.p2': 'Més endavant us confirmarem l\'hora exacta i el lloc de sortida, però volíem avisar-vos amb antelació perquè ho tingueu en compte.',
+        'taxis.outbound': 'Anada',
+        'taxis.return': 'Tornada',
+        'taxis.tbc': 'Per confirmar',
+        'taxis.outbound-detail': 'Sortida des de la catedral cap a la masia',
+        'taxis.return-detail': 'Sortida des de la masia en acabar la celebració',
+        'taxis.back': 'Tornar a l\'inici',
         
         // Hero
         'hero.title': 'Miguel & Cristina',
