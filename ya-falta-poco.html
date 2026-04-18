@@ -9,36 +9,40 @@
     <script src="ya-falta-poco-countdown.js" defer></script>
 </head>
 <body class="yfp-landing">
-    <a class="yfp-skip" href="#yfp-main">Ir al contenido</a>
+    <a class="yfp-skip" href="#yfp-main" data-yfp-i18n="skip">Ir al contenido</a>
 
     <header class="site-header yfp-header">
         <div class="header-container">
             <a href="index.html" class="yfp-brand" aria-label="Ir a la web principal de la boda">M&amp;C</a>
-            <a href="index.html" class="yfp-header-link">Web de la boda</a>
+            <div class="language-selector">
+                <button type="button" data-lang="es" class="active" title="Español">ES</button>
+                <button type="button" data-lang="ca" title="Català">CA</button>
+            </div>
+            <a href="index.html" class="yfp-header-link" data-yfp-i18n="headerLink">Web de la boda</a>
         </div>
     </header>
 
     <main id="yfp-main">
         <section class="yfp-hero" aria-labelledby="yfp-title">
             <div class="yfp-hero-inner">
-                <h1 id="yfp-title" class="yfp-title">Ya falta muy poco</h1>
+                <h1 id="yfp-title" class="yfp-title" data-yfp-i18n="heroTitle">Ya falta muy poco</h1>
                 <div class="yfp-hero-line" aria-hidden="true">
                     <span class="yfp-hero-diamond"></span>
                 </div>
-                <p class="yfp-subtitle">
+                <p class="yfp-subtitle" data-yfp-i18n="heroSubtitle">
                     Estamos felices de saber que vais a compartir con nosotros uno de los días más importantes de nuestra vida
                 </p>
             </div>
         </section>
 
         <section class="yfp-section yfp-emotion" aria-labelledby="yfp-emotion-heading">
-            <h2 id="yfp-emotion-heading" class="visually-hidden">Un mensaje para vosotros</h2>
+            <h2 id="yfp-emotion-heading" class="visually-hidden" data-yfp-i18n="emotionHeading">Un mensaje para vosotros</h2>
             <div class="yfp-prose">
-                <p>Gracias por acompañarnos en este momento tan especial.</p>
-                <p>
+                <p data-yfp-i18n="emotionP1">Gracias por acompañarnos en este momento tan especial.</p>
+                <p data-yfp-i18n="emotionP2">
                     Cada abrazo, cada sonrisa y cada persona que estará allí hace que este día tenga todavía más sentido para nosotros.
                 </p>
-                <p>
+                <p data-yfp-i18n="emotionP3">
                     Tenemos muchísimas ganas de celebrarlo con vosotros, emocionarnos, reírnos, bailar y crear recuerdos inolvidables juntos.
                 </p>
             </div>
@@ -63,41 +67,41 @@
         ═══════════════════════════════════════════════════════════════════
         -->
         <section class="yfp-section yfp-media-block" aria-label="Imagen o vídeo destacado">
-            <video class="yfp-media-video" controls playsinline aria-label="Vídeo de Miguel y Cristina">
+            <video class="yfp-media-video" controls playsinline aria-label="Vídeo de Miguel y Cristina" data-yfp-video-label>
                 <source src="video-boda.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de vídeo HTML5.
+                <span data-yfp-i18n="videoFallback">Tu navegador no soporta la reproducción de vídeo HTML5.</span>
             </video>
         </section>
 
         <section class="yfp-section yfp-countdown-section" aria-labelledby="yfp-countdown-heading">
-            <h2 id="yfp-countdown-heading" class="yfp-countdown-title">Hasta el 2 de mayo de 2026</h2>
-            <p class="yfp-countdown-intro">Un poco de paciencia… el día se acerca.</p>
+            <h2 id="yfp-countdown-heading" class="yfp-countdown-title" data-yfp-i18n="countdownTitle">Hasta el 2 de mayo de 2026</h2>
+            <p class="yfp-countdown-intro" data-yfp-i18n="countdownIntro">Un poco de paciencia… el día se acerca.</p>
 
             <div id="yfp-countdown-live" class="yfp-countdown-wrap" aria-live="polite">
                 <div id="yfp-countdown-root" class="yfp-countdown">
                     <div class="yfp-count-item">
                         <span id="yfp-d" class="yfp-count-num">00</span>
-                        <span class="yfp-count-label">Días</span>
+                        <span class="yfp-count-label" data-yfp-i18n="labelDays">Días</span>
                     </div>
                     <span class="yfp-count-sep" aria-hidden="true">·</span>
                     <div class="yfp-count-item">
                         <span id="yfp-h" class="yfp-count-num">00</span>
-                        <span class="yfp-count-label">Horas</span>
+                        <span class="yfp-count-label" data-yfp-i18n="labelHours">Horas</span>
                     </div>
                     <span class="yfp-count-sep" aria-hidden="true">·</span>
                     <div class="yfp-count-item">
                         <span id="yfp-m" class="yfp-count-num">00</span>
-                        <span class="yfp-count-label">Min</span>
+                        <span class="yfp-count-label" data-yfp-i18n="labelMin">Min</span>
                     </div>
                     <span class="yfp-count-sep" aria-hidden="true">·</span>
                     <div class="yfp-count-item">
                         <span id="yfp-s" class="yfp-count-num">00</span>
-                        <span class="yfp-count-label">Seg</span>
+                        <span class="yfp-count-label" data-yfp-i18n="labelSec">Seg</span>
                     </div>
                 </div>
 
                 <div id="yfp-countdown-past" class="yfp-countdown-past" hidden>
-                    <p class="yfp-countdown-past-text">El gran día ha llegado. Gracias por estar aquí y por hacerlo aún más especial.</p>
+                    <p class="yfp-countdown-past-text" data-yfp-i18n="countdownPast">El gran día ha llegado. Gracias por estar aquí y por hacerlo aún más especial.</p>
                 </div>
             </div>
         </section>
@@ -111,20 +115,20 @@
         ═══════════════════════════════════════════════════════════════════
         -->
         <section class="yfp-section yfp-gift" aria-labelledby="yfp-gift-heading">
-            <h2 id="yfp-gift-heading" class="yfp-gift-title">Un pequeño detalle</h2>
+            <h2 id="yfp-gift-heading" class="yfp-gift-title" data-yfp-i18n="giftTitle">Un pequeño detalle</h2>
             <div class="yfp-gift-title-line decorative-line" aria-hidden="true">
                 <span class="decorative-diamond"></span>
             </div>
 
-            <p class="yfp-gift-lead">
+            <p class="yfp-gift-lead" data-yfp-i18n="giftLead1">
                 Vuestra compañía en este día es nuestro mejor regalo.
             </p>
-            <p class="yfp-gift-lead yfp-gift-lead--second">
+            <p class="yfp-gift-lead yfp-gift-lead--second" data-yfp-i18n="giftLead2">
                 Pero si además queréis tener un detalle con nosotros, podéis hacerlo aquí.
             </p>
 
             <div class="yfp-gift-card">
-                <p class="yfp-gift-card-intro">
+                <p class="yfp-gift-card-intro" data-yfp-i18n="giftCardIntro">
                     Los mismos datos que en nuestra página de regalos, por si os resulta más cómodo desde aquí.
                 </p>
 
@@ -152,48 +156,156 @@
                 <!-- FIN sección regalo -->
 
                 <button type="button" class="yfp-gift-copy" id="yfp-gift-copy-btn" aria-describedby="yfp-gift-iban-display">
-                    Copiar IBAN
+                    <span data-yfp-i18n="copyBtn">Copiar IBAN</span>
                 </button>
                 <p class="yfp-gift-copy-feedback" id="yfp-gift-copy-feedback" role="status" aria-live="polite"></p>
 
-                <p class="yfp-gift-note">
+                <p class="yfp-gift-note" data-yfp-i18n="giftNote">
                     Si prefieres otro método de pago o tienes alguna duda, no dudes en contactarnos directamente.
                 </p>
                 <p class="yfp-gift-more">
-                    <a href="lista-de-regalos.html" class="yfp-gift-more-link">Ver la página de regalos</a>
+                    <a href="lista-de-regalos.html" class="yfp-gift-more-link" data-yfp-i18n="giftLink">Ver la página de regalos</a>
                 </p>
             </div>
         </section>
 
         <section class="yfp-section yfp-closing" aria-labelledby="yfp-closing-heading">
-            <h2 id="yfp-closing-heading" class="visually-hidden">Despedida</h2>
-            <p class="yfp-closing-line">Nos vemos muy pronto</p>
+            <h2 id="yfp-closing-heading" class="visually-hidden" data-yfp-i18n="closingHeading">Despedida</h2>
+            <p class="yfp-closing-line" data-yfp-i18n="closingLine">Nos vemos muy pronto</p>
             <div class="yfp-closing-line decorative-line yfp-closing-decor" aria-hidden="true">
                 <span class="decorative-diamond"></span>
             </div>
-            <p class="yfp-signature">Con cariño,<br>Miguel y Cristina</p>
+            <p class="yfp-signature" data-yfp-i18n="signature">Con cariño,<br>Miguel y Cristina</p>
             <div class="yfp-cta-wrap">
-                <a href="index.html" class="rsvp-button yfp-cta">Ver detalles de la boda</a>
+                <a href="index.html" class="rsvp-button yfp-cta" data-yfp-i18n="cta">Ver detalles de la boda</a>
             </div>
         </section>
     </main>
 
     <footer class="yfp-footer">
-        <p>Miguel &amp; Cristina · 2 de mayo de 2026</p>
+        <p data-yfp-i18n="footer">Miguel &amp; Cristina · 2 de mayo de 2026</p>
     </footer>
 
     <script>
         (function () {
-            var header = document.querySelector('.site-header');
-            if (!header) return;
-            function onScroll() {
-                header.classList.toggle('scrolled', window.scrollY > 40);
+            var translations = {
+                es: {
+                    lang: 'es',
+                    headerLink: 'Web de la boda',
+                    skip: 'Ir al contenido',
+                    heroTitle: 'Ya falta muy poco',
+                    heroSubtitle: 'Estamos felices de saber que vais a compartir con nosotros uno de los dias mas importantes de nuestra vida',
+                    emotionHeading: 'Un mensaje para vosotros',
+                    emotionP1: 'Gracias por acompanarnos en este momento tan especial.',
+                    emotionP2: 'Cada abrazo, cada sonrisa y cada persona que estara alli hace que este dia tenga todavia mas sentido para nosotros.',
+                    emotionP3: 'Tenemos muchisimas ganas de celebrarlo con vosotros, emocionarnos, reirnos, bailar y crear recuerdos inolvidables juntos.',
+                    videoAria: 'Video de Miguel y Cristina',
+                    videoFallback: 'Tu navegador no soporta la reproduccion de video HTML5.',
+                    countdownTitle: 'Hasta el 2 de mayo de 2026',
+                    countdownIntro: 'Un poco de paciencia... el dia se acerca.',
+                    labelDays: 'Dias',
+                    labelHours: 'Horas',
+                    labelMin: 'Min',
+                    labelSec: 'Seg',
+                    countdownPast: 'El gran dia ha llegado. Gracias por estar aqui y por hacerlo aun mas especial.',
+                    giftTitle: 'Un pequeno detalle',
+                    giftLead1: 'Vuestra compania en este dia es nuestro mejor regalo.',
+                    giftLead2: 'Pero si ademas quereis tener un detalle con nosotros, podeis hacerlo aqui.',
+                    giftCardIntro: 'Los mismos datos que en nuestra pagina de regalos, por si os resulta mas comodo desde aqui.',
+                    copyBtn: 'Copiar IBAN',
+                    copyDone: 'Copiado',
+                    copyOk: 'IBAN copiado al portapapeles.',
+                    copyFail: 'No se pudo copiar; selecciona el IBAN manualmente.',
+                    giftNote: 'Si prefieres otro metodo de pago o tienes alguna duda, no dudes en contactarnos directamente.',
+                    giftLink: 'Ver la pagina de regalos',
+                    closingHeading: 'Despedida',
+                    closingLine: 'Nos vemos muy pronto',
+                    signature: 'Con carino,<br>Miguel y Cristina',
+                    cta: 'Ver detalles de la boda',
+                    footer: 'Miguel &amp; Cristina · 2 de mayo de 2026'
+                },
+                ca: {
+                    lang: 'ca',
+                    headerLink: 'Web del casament',
+                    skip: 'Ves al contingut',
+                    heroTitle: 'Ja falta molt poc',
+                    heroSubtitle: 'Estem molt feliços de saber que compartireu amb nosaltres un dels dies mes importants de la nostra vida',
+                    emotionHeading: 'Un missatge per a vosaltres',
+                    emotionP1: 'Gracies per acompanyar-nos en aquest moment tan especial.',
+                    emotionP2: 'Cada abracada, cada somriure i cada persona que hi sera fa que aquest dia tingui encara mes sentit per a nosaltres.',
+                    emotionP3: 'Tenim moltissimes ganes de celebrar-ho amb vosaltres, emocionar-nos, riure, ballar i crear records inoblidables junts.',
+                    videoAria: 'Video d en Miguel i la Cristina',
+                    videoFallback: 'El teu navegador no admet la reproduccio de video HTML5.',
+                    countdownTitle: 'Fins al 2 de maig de 2026',
+                    countdownIntro: 'Una mica de paciencia... el dia s acosta.',
+                    labelDays: 'Dies',
+                    labelHours: 'Hores',
+                    labelMin: 'Min',
+                    labelSec: 'Seg',
+                    countdownPast: 'El gran dia ha arribat. Gracies per ser aqui i fer-lo encara mes especial.',
+                    giftTitle: 'Un petit detall',
+                    giftLead1: 'La vostra companyia en aquest dia es el nostre millor regal.',
+                    giftLead2: 'Pero si, a mes, ens voleu fer un detall, ho podeu fer aqui.',
+                    giftCardIntro: 'Les mateixes dades que a la nostra pagina de regals, per si us es mes comode des d aqui.',
+                    copyBtn: 'Copiar IBAN',
+                    copyDone: 'Copiat',
+                    copyOk: 'IBAN copiat al porta-retalls.',
+                    copyFail: 'No s ha pogut copiar; selecciona l IBAN manualment.',
+                    giftNote: 'Si prefereixes un altre metode de pagament o tens algun dubte, no dubtis a contactar-nos directament.',
+                    giftLink: 'Veure la pagina de regals',
+                    closingHeading: 'Comiat',
+                    closingLine: 'Ens veiem ben aviat',
+                    signature: 'Amb carinyo,<br>Miguel i Cristina',
+                    cta: 'Veure detalls del casament',
+                    footer: 'Miguel &amp; Cristina · 2 de maig de 2026'
+                }
+            };
+
+            var currentLang = 'es';
+            var langButtons = document.querySelectorAll('.language-selector [data-lang]');
+
+            function textFor(key) {
+                return (translations[currentLang] && translations[currentLang][key]) || translations.es[key] || '';
             }
-            onScroll();
-            window.addEventListener('scroll', onScroll, { passive: true });
-        })();
-        /* IBAN: debe coincidir con el texto en #yfp-gift-iban-display y con lista-de-regalos.html */
-        (function () {
+
+            function applyLang(lang) {
+                var bundle = translations[lang] || translations.es;
+                currentLang = lang;
+                document.documentElement.lang = bundle.lang;
+                document.querySelectorAll('[data-yfp-i18n]').forEach(function (el) {
+                    var key = el.getAttribute('data-yfp-i18n');
+                    if (!key) return;
+                    if (key === 'signature' || key === 'footer') {
+                        el.innerHTML = textFor(key);
+                    } else {
+                        el.textContent = textFor(key);
+                    }
+                });
+                document.querySelectorAll('[data-yfp-video-label]').forEach(function (video) {
+                    video.setAttribute('aria-label', textFor('videoAria'));
+                });
+                langButtons.forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+            }
+
+            langButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    applyLang(btn.getAttribute('data-lang'));
+                });
+            });
+
+            applyLang('es');
+
+            var header = document.querySelector('.site-header');
+            if (header) {
+                function onScroll() {
+                    header.classList.toggle('scrolled', window.scrollY > 40);
+                }
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+            }
+
             var iban = 'ES85 0049 6005 4423 1606 0613';
             var btn = document.getElementById('yfp-gift-copy-btn');
             var feedback = document.getElementById('yfp-gift-copy-feedback');
@@ -201,17 +313,17 @@
             btn.addEventListener('click', function () {
                 function ok() {
                     if (feedback) {
-                        feedback.textContent = 'IBAN copiado al portapapeles.';
+                        feedback.textContent = textFor('copyOk');
                     }
-                    btn.textContent = 'Copiado';
+                    btn.textContent = textFor('copyDone');
                     setTimeout(function () {
-                        btn.textContent = 'Copiar IBAN';
+                        btn.textContent = textFor('copyBtn');
                         if (feedback) feedback.textContent = '';
                     }, 2500);
                 }
                 function fail() {
                     if (feedback) {
-                        feedback.textContent = 'No se pudo copiar; selecciona el IBAN manualmente.';
+                        feedback.textContent = textFor('copyFail');
                     }
                 }
                 if (navigator.clipboard && navigator.clipboard.writeText) {
