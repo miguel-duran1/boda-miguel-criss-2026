@@ -2049,6 +2049,7 @@ body.yfp-landing {
         radial-gradient(ellipse at top, rgba(166, 123, 91, 0.18) 0%, transparent 55%),
         radial-gradient(ellipse at bottom, rgba(139, 90, 43, 0.22) 0%, transparent 50%),
         linear-gradient(to bottom, #1a0f1a 0%, #2d1b2e 22%, #3d2b3e 45%, #4a2c3a 68%, #2a1a1a 100%);
+        margin-top: 34px;
 }
 
 .yfp-hero::before {
@@ -2494,7 +2495,7 @@ body.yfp-landing {
 
 .yfp-closing-decor {
     width: 100px;
-    margin-bottom: 1.25rem;
+    margin: 0 auto 1.25rem;
 }
 
 .yfp-signature {
