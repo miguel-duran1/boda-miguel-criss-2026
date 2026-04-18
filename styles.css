@@ -2157,9 +2157,11 @@ body.yfp-landing {
 }
 
 .yfp-media-block {
-    max-width: 42rem;
+    max-width: none;
     padding-top: 0;
     padding-bottom: clamp(2rem, 6vw, 3rem);
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .yfp-media-placeholder {
